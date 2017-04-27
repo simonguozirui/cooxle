@@ -1,3 +1,4 @@
+<?php include_once("head.php") ?>
 <?php
 
     // First we execute our common code to connection to the database and start the session
@@ -107,14 +108,18 @@
     }
 
 ?>
-<h1>Login</h1>
-<form action="login.php" method="post">
-    Username:<br />
-    <input type="text" name="username" value="<?php echo $submitted_username; ?>" />
-    <br /><br />
-    Password:<br />
-    <input type="password" name="password" value="" />
-    <br /><br />
-    <input type="submit" value="Login" />
-</form>
-<a href="register.php">Register</a>
+
+<div class="box">
+    <h1>Log In</h1> 
+</div>
+<form action="login.php" method="post"> 
+    Username:<br /> 
+    <input type="text" name="username" value="<?php echo $submitted_username; ?>" /> 
+    <br /><br /> 
+    Password:<br /> 
+    <input type="password" name="password" value="" /> 
+    <br /><br />   
+    <input type="submit" value="Login" /><a class="button is-primary is-inverted is-outlined">Invert Outlined</a>
+</form> 
+<p>Don't have an account? <a href="register.php">Sign Up</a></p>
+>>>>>>> Stashed changes
