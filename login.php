@@ -88,9 +88,9 @@
             // or not the user is logged in.  We can also use it to retrieve
             // the user's details.
             $_SESSION['user'] = $row;
-
+            echo "<script>  location.href = 'index.php'</script>";
             // Redirect the user to the private members-only page.
-            header("Location: index.php");
+            
             die("Redirecting to: index.php");
         }
         else
