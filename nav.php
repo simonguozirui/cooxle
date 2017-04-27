@@ -2,10 +2,9 @@
     <div class="container">
         <div class="nav-left">
             <a class="nav-item" href="index.php">
-             <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma logo">
+             <img src="img/logo.png" alt="Cooxle">
             </a>
             <a class="nav-item is-tab is-active" href="index.php">Home</a>
-            <a class="nav-item is-tab" href="login.php">Login</a>
             <p class="nav-item">
                 <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
                     <p class="control">
