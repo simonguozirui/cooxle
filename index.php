@@ -2,10 +2,27 @@
 	<?php include_once("head.php") ?>
 	<body>
 	<?php include_once("nav.php") ?>
-	<?php
+	<?php require("common.php"); ?>
+	<center>
+		<h1 class="title">
+			<?php
+				$arr = array_values($_SESSION['user']);
+				echo "Welcome " . $arr[2];
+			?>
+		</h1>
+	</center>
+	<div class="columns is-mobile">
+		<div class="column is-half is-offset-one-quarter">
 
-	    // pass in some info;
-		require("common.php");
+			<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
+		    	<label class="label">Country: </label>
+		    	<div class="control"><input type="text" name="country"></div>
+		    	<label class="label">National animal:</label><div class="control"><input type="text" name="animal"></div>
+		    	<input type="submit" name="submit">
+		    </form>
+		</div>
+	</div>
+	<?php
 
 		if(empty($_SESSION['user'])) {
 
@@ -20,8 +37,6 @@
     	}
 
 		// To access $_SESSION['user'] values put in an array, show user his username
-		$arr = array_values($_SESSION['user']);
-		echo "Welcome " . $arr[2];
 
 		// open connection
 		$connection = mysqli_connect($host, $username, $password) or die ("Unable to connect!");
@@ -39,16 +54,16 @@
 		if (mysqli_num_rows($result) > 0) {
 
     		// print them one after another
-    		echo "<table cellpadding=10 border=1>";
+    		echo "<table class='table'><thead><tr><th>Id</th><th>Country</th><th>Animal</th><th>Delete</th><tbody>";
     		while($row = mysqli_fetch_row($result)) {
         		echo "<tr>";
 				echo "<td>".$row[0]."</td>";
         		echo "<td>" . $row[1]."</td>";
         		echo "<td>".$row[2]."</td>";
-				echo "<td><a href=".$_SERVER['PHP_SELF']."?id=".$row[0].">Delete</a></td>";
+				echo "<td><a class='button is-danger' href=".$_SERVER['PHP_SELF']."?id=".$row[0].">Delete</a></td>";
         		echo "</tr>";
     		}
-		    echo "</table>";
+		    echo "</tbody></table>";
 
 		} else {
 
@@ -94,14 +109,6 @@
 		mysqli_close($connection);
 
 	?>
-
-    <!-- This is the HTML form that appears in the browser -->
-   	<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-    	Country: <input type="text" name="country">
-    	National animal: <input type="text" name="animal">
-    	<input type="submit" name="submit">
-    </form>
-    <form action="logout.php" method="post"><button>Log out</button></form>
 
 	</body>
 </html>
