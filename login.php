@@ -114,8 +114,8 @@
 
     <div class="box">
         <div class="column is-half is-offset-one-quarter">
-        <center><h1 class="title">Log In</h1></center>
-        <br/>
+        <img src="img/logo.png" alt="cooxle">
+        <br/><br/>
         <form action="login.php" method="post"> 
 
         <div class="field">
