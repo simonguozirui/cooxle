@@ -134,10 +134,7 @@
             </span>
           </p>
         </div>
-
-
-        <br /><br />   
-        <center><input type="submit" value="Login" /><a class="button is-primary is-medium">Log In</a></center>
+        <center><button type="submit" class="button is-primary is-medium">Log In</button></center>
         </form> 
         <center><p>Don't have an account? <a href="register.php">Sign Up</a></p></center>
         </div>
