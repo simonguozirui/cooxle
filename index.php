@@ -7,19 +7,35 @@
 		<h1 class="title">
 			<?php
 				$arr = array_values($_SESSION['user']);
-				echo "Welcome " . $arr[2];
+				echo "Welcome " . $arr[1];
 			?>
 		</h1>
+		<hr>
 	</center>
 	<div class="columns is-mobile">
-		<div class="column is-half is-offset-one-quarter">
+		<div class="column is-one-quarter is-offset-one-quarter">
 
 			<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
 		    	<label class="label">Country: </label>
-		    	<div class="control"><input type="text" name="country"></div>
-		    	<label class="label">National animal:</label><div class="control"><input type="text" name="animal"></div>
-		    	<input type="submit" name="submit">
+		    	<div class="control"><input class="input" type="text" placeholder="Country" name="country"></div>
+
+		    	<label class="label">National animal:</label>
+		    	<div class="control">
+		    		<input class="input" type="text" placeholder="National Animal" name="animal">
+		    	</div>
+		    	<br>
+		    	<input class="button is-primary" type="submit" name="submit">
 		    </form>
+		</div>
+		<div class="column is-one-quarter">
+			<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
+				<label class="label">Search</label>
+                <p class="control">
+           	        <input class="input" type="text" placeholder="Search for users or tags">
+                </p>
+                <br>
+                <input class="button is-primary" type="submit" name="submit">
+   	        </form>
 		</div>
 	</div>
 	<?php
@@ -54,21 +70,45 @@
 		if (mysqli_num_rows($result) > 0) {
 
     		// print them one after another
-    		echo "<table class='table'><thead><tr><th>Id</th><th>Country</th><th>Animal</th><th>Delete</th><tbody>";
+    		echo '<div class="columns"><div class="column is-half is-offset-one-quarter">';
     		while($row = mysqli_fetch_row($result)) {
-        		echo "<tr>";
-				echo "<td>".$row[0]."</td>";
-        		echo "<td>" . $row[1]."</td>";
-        		echo "<td>".$row[2]."</td>";
-				echo "<td><a class='button is-danger' href=".$_SERVER['PHP_SELF']."?id=".$row[0].">Delete</a></td>";
-        		echo "</tr>";
+    			echo '<article class="media">
+  						<figure class="media-left">
+    						<p class="image is-64x64">
+						      <img src="http://bulma.io/images/placeholders/128x128.png">
+						    </p>
+						</figure>
+						<div class="media-content">
+						 	<div class="content">
+						      	<p>
+						        <strong>'.$row[1].'</strong> <small>'.$row[0].'</small>
+						        <br>
+						        '.$row[2].'
+						      	</p>
+						    </div>
+						    <nav class="level is-mobile">
+						    	<div class="level-left">
+						        	<a class="level-item">
+						          		<span class="icon is-small"><i class="fa fa-reply"></i></span>
+						        	</a>
+						        	<a class="level-item">
+						          		<span class="icon is-small"><i class="fa fa-retweet"></i></span>
+						        	</a>
+						        	<a class="level-item">
+						        	  	<span class="icon is-small"><i class="fa fa-heart"></i></span>
+						        	</a>
+						      	</div>
+						    </nav>
+						</div>
+					</article><hr><br>';
+					// '<a class="level-item" href='.$_SERVER['PHP_SELF'].'>'
     		}
-		    echo "</tbody></table>";
+		    echo "</div></div>";
 
 		} else {
 
     		// print status message
-    		echo "No rows found!";
+    		echo '<div class="columns is-mobile"><div class="column is-half is-offset-one-quarter"><div class="notification is-danger">No rows found</div></div></div>';
 		}
 
 		// free result set memory

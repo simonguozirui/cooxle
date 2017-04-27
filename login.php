@@ -90,7 +90,7 @@
             $_SESSION['user'] = $row;
             echo "<script>  location.href = 'index.php'</script>";
             // Redirect the user to the private members-only page.
-            
+
             die("Redirecting to: index.php");
         }
         else
@@ -108,15 +108,16 @@
     }
 
 ?>
+<center><h1 style="padding-top: 16vh" class="title is-1">Cooxle</h1><br></center>
+<div class="columns is-mobile">
 
-<div style="padding-top: 25vh" class="columns is-mobile">
   <div class="column is-half is-offset-one-quarter">
 
     <div class="box">
         <div class="column is-half is-offset-one-quarter">
         <center><h1 class="title">Log In</h1></center>
         <br/>
-        <form action="login.php" method="post"> 
+        <form action="login.php" method="post">
 
         <div class="field">
           <p class="control has-icons-left has-icons-right">
@@ -135,7 +136,7 @@
           </p>
         </div>
         <center><button type="submit" class="button is-primary is-medium">Log In</button></center>
-        </form> 
+        </form>
         <center><p>Don't have an account? <a href="register.php">Sign Up</a></p></center>
         </div>
     </div>
