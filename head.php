@@ -1,6 +1,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Cooxle</title>
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="bulma/css/bulma.css">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta http-equiv="x-ua-compatible" content="ie=edge">

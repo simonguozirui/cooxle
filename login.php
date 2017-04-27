@@ -110,15 +110,14 @@
     }
 
 ?>
-<center><h1 style="padding-top: 16vh" class="title is-1">Cooxle</h1><br></center>
-<div class="columns is-mobile">
+<div class="columns is-mobile" style="padding-top: 25vh">
 
   <div class="column is-half is-offset-one-quarter">
 
     <div class="box">
         <div class="column is-half is-offset-one-quarter">
-        <center><h1 class="title">Log In</h1></center>
-        <br/>
+        <img src="img/logo.png" alt="cooxle">
+        <br/><br/>
         <form action="login.php" method="post">
         <div class="field">
           <p class="control has-icons-left has-icons-right">
