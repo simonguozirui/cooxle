@@ -1,8 +1,9 @@
 <html>
 	<?php include_once("head.php") ?>
 	<body>
-	<?php include_once("nav.php") ?>
 	<?php require("common.php"); ?>
+	<?php include_once("nav.php") ?>
+
 	<center>
 		<h1 class="title">
 			<?php

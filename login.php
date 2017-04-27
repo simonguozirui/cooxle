@@ -96,7 +96,9 @@
         else
         {
             // Tell the user they failed
-            print("Login Failed.");
+            echo "<center><div class='notification is-danger'>
+              Login failed!
+            </div></center>";
 
             // Show them their username again so all they have to do is enter a new
             // password.  The use of htmlentities prevents XSS attacks.  You should
@@ -115,16 +117,9 @@
 
     <div class="box">
         <div class="column is-half is-offset-one-quarter">
-<!-- <<<<<<< HEAD -->
         <center><h1 class="title">Log In</h1></center>
         <br/>
         <form action="login.php" method="post">
-<!-- =======
-        <img src="img/logo.png" alt="cooxle">
-        <br/><br/>
-        <form action="login.php" method="post">
->>>>>>> a6d2ce73b0b8b67ecd57e55a3d51aec1f79fd8da -->
-
         <div class="field">
           <p class="control has-icons-left has-icons-right">
             <input type="text" name="username" value="<?php echo $submitted_username; ?>" class="input is-success" type="text" placeholder="Username">

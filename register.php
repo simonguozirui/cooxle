@@ -194,16 +194,9 @@
 
     <div class="box">
         <div class="column is-half is-offset-one-quarter">
-<<<<<<< HEAD
-        <center><h1 class="title">Sign Up</h1></center>
-        <br/>
-        <form action="register.php" method="post">
-=======
         <img src="img/logo.png" alt="cooxle">
         <br/><br/>
-        <form action="register.php" method="post"> 
->>>>>>> a6d2ce73b0b8b67ecd57e55a3d51aec1f79fd8da
-
+        <form action="register.php" method="post">
         <div class="field">
           <p class="control has-icons-left has-icons-right">
             <input type="text" name="username" value="" class="input is-success" placeholder="Username">
