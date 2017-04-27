@@ -1,3 +1,4 @@
+<?php include_once("head.php") ?>
 <?php 
 
     // First we execute our common code to connection to the database and start the session 
@@ -178,8 +179,8 @@
         } 
          
         // This redirects the user back to the login page after they register 
-        header("Location: login.php"); 
-         
+        echo "<script>  location.href = 'login.php'</script>";
+     
         // Calling die or exit after performing a redirect using the header function 
         // is critical.  The rest of your PHP script will continue to execute and 
         // will be sent to the user if you do not die or exit. 
@@ -187,16 +188,44 @@
     } 
      
 ?> 
-<h1>Register</h1> 
-<form action="register.php" method="post"> 
-    Username:<br /> 
-    <input type="text" name="username" value="" /> 
-    <br /><br /> 
-    E-Mail:<br /> 
-    <input type="text" name="email" value="" /> 
-    <br /><br /> 
-    Password:<br /> 
-    <input type="password" name="password" value="" /> 
-    <br /><br /> 
-    <input type="submit" value="Register" /> 
-</form>
+<div style="padding-top: 25vh" class="columns is-mobile">
+  <div class="column is-half is-offset-one-quarter">
+
+    <div class="box">
+        <div class="column is-half is-offset-one-quarter">
+        <center><h1 class="title">Sign Up</h1></center>
+        <br/>
+        <form action="register.php" method="post"> 
+
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input type="text" name="username" value="" class="input is-success" placeholder="Username">
+            <span class="icon is-small is-left">
+              <i class="fa fa-user"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input type="text" name="email" value="" class="input is-success" placeholder="Email">
+            <span class="icon is-small is-left">
+              <i class="fa fa-mail"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input type="password" name="password" value="" class="input is-success" placeholder="Password">
+            <span class="icon is-small is-left">
+              <i class="fa fa-lock"></i>
+            </span>
+          </p>
+        </div>
+        <center><button type="submit" class="button is-primary is-medium">Sign Up</button></center>
+        </form> 
+        <center><p>Already have an account? <a href="login.php">Log In</a></p></center>
+        <center><p>Never used Cooxie? <a href="about.php">Learn More</a></p></center>
+        </div>
+    </div>
+  </div>
+</div>
