@@ -1,3 +1,4 @@
+<?php include_once("head.php") ?>
 <?php
 
     // First we execute our common code to connection to the database and start the session
@@ -87,10 +88,10 @@
             // or not the user is logged in.  We can also use it to retrieve
             // the user's details.
             $_SESSION['user'] = $row;
-
+            echo "<script>  location.href = 'index.php'</script>";
             // Redirect the user to the private members-only page.
-            header("Location: edit.php");
-            die("Redirecting to: edit.php");
+            
+            die("Redirecting to: index.php");
         }
         else
         {
@@ -107,14 +108,37 @@
     }
 
 ?>
-<h1>Login</h1>
-<form action="login.php" method="post">
-    Username:<br />
-    <input type="text" name="username" value="<?php echo $submitted_username; ?>" />
-    <br /><br />
-    Password:<br />
-    <input type="password" name="password" value="" />
-    <br /><br />
-    <input type="submit" value="Login" />
-</form>
-<a href="register.php">Register</a>
+
+<div style="padding-top: 25vh" class="columns is-mobile">
+  <div class="column is-half is-offset-one-quarter">
+
+    <div class="box">
+        <div class="column is-half is-offset-one-quarter">
+        <center><h1 class="title">Log In</h1></center>
+        <br/>
+        <form action="login.php" method="post"> 
+
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input type="text" name="username" value="<?php echo $submitted_username; ?>" class="input is-success" type="text" placeholder="Username">
+            <span class="icon is-small is-left">
+              <i class="fa fa-user"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input type="password" name="password" value="" class="input is-success" placeholder="Password">
+            <span class="icon is-small is-left">
+              <i class="fa fa-lock"></i>
+            </span>
+          </p>
+        </div>
+        <center><button type="submit" class="button is-primary is-medium">Log In</button></center>
+        </form> 
+        <center><p>Don't have an account? <a href="register.php">Sign Up</a></p></center>
+        </div>
+    </div>
+  </div>
+</div>
+
