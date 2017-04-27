@@ -194,9 +194,15 @@
 
     <div class="box">
         <div class="column is-half is-offset-one-quarter">
+<<<<<<< HEAD
         <center><h1 class="title">Sign Up</h1></center>
         <br/>
         <form action="register.php" method="post">
+=======
+        <img src="img/logo.png" alt="cooxle">
+        <br/><br/>
+        <form action="register.php" method="post"> 
+>>>>>>> a6d2ce73b0b8b67ecd57e55a3d51aec1f79fd8da
 
         <div class="field">
           <p class="control has-icons-left has-icons-right">
@@ -210,7 +216,7 @@
           <p class="control has-icons-left has-icons-right">
             <input type="text" name="email" value="" class="input is-success" placeholder="Email">
             <span class="icon is-small is-left">
-              <i class="fa fa-mail"></i>
+              <i class="fa fa-envelope"></i>
             </span>
           </p>
         </div>
@@ -225,7 +231,7 @@
         <center><button type="submit" class="button is-primary is-medium">Sign Up</button></center>
         </form>
         <center><p>Already have an account? <a href="login.php">Log In</a></p></center>
-        <center><p>Never used Cooxie? <a href="about.php">Learn More</a></p></center>
+        <center><p>Never used Cooxle? <a href="about.php">Learn More</a></p></center>
         </div>
     </div>
   </div>
