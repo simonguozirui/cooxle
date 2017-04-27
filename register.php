@@ -209,7 +209,7 @@
           <p class="control has-icons-left has-icons-right">
             <input type="text" name="email" value="" class="input is-success" placeholder="Email">
             <span class="icon is-small is-left">
-              <i class="fa fa-mail"></i>
+              <i class="fa fa-envelope"></i>
             </span>
           </p>
         </div>
@@ -224,7 +224,7 @@
         <center><button type="submit" class="button is-primary is-medium">Sign Up</button></center>
         </form> 
         <center><p>Already have an account? <a href="login.php">Log In</a></p></center>
-        <center><p>Never used Cooxie? <a href="about.php">Learn More</a></p></center>
+        <center><p>Never used Cooxle? <a href="about.php">Learn More</a></p></center>
         </div>
     </div>
   </div>
