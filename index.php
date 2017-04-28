@@ -93,6 +93,10 @@
     			$id = $row[0];
     			$text = $row[2];
     			$usr = $row[3];
+    			$tagText = "";
+    			if ($tag != "") {
+    				$tagText = '<a class="button is-primary is-small">'.$tag.'</a>';
+    			}
     			echo '<article class="media">
   						<figure class="media-left">
     						<p class="image is-64x64">
@@ -104,7 +108,7 @@
 						      	<p>
 						        <strong>'.$usr.'</strong> <small>ID: '.$id.'</small>
 						        <br>
-						        '.$text.' <br><a class="button is-primary is-small">'.$tag.'</a>
+						        '.$text.' <br>' . $tagText.'
 						      	</p>
 						    </div>
 						    <nav class="level is-mobile">
