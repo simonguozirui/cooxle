@@ -48,7 +48,7 @@
 			<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
 				<label class="label">Search</label>
                 <p class="control">
-           	        <input class="input" type="text" placeholder="Search for users or tags">
+           	        <input class="input" type="text" placeholder="Search for tags">
                 </p>
                 <br>
                 <input class="button is-primary" type="submit" name="submit">
@@ -82,7 +82,7 @@
 
 		// execute query
 		$result = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysql_error());
-
+		// $result = array_reverse($initial);
 		// see if any rows were returned
 		if (mysqli_num_rows($result) > 0) {
 
