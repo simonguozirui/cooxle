@@ -7,8 +7,24 @@
 	<center>
 		<h1 class="title">
 			<?php
-				$arr = array_values($_SESSION['user']);
-				echo "Welcome " . $arr[1];
+
+				if(empty($_SESSION['user'])) {
+
+					// If they are not, we redirect them to the login page.
+					$location = "http://" . $_SERVER['HTTP_HOST'] . "/login.php";
+					echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
+					//exit;
+
+		        	// Remember that this die statement is absolutely critical.  Without it,
+		        	// people can view your members-only content without logging in.
+		        	die("<center><div class='notification is-danger'>
+	              		Redirecting to login
+	            		</div></center>");
+		    	}
+		    	$arr = array_values($_SESSION['user']);
+				$clientname = $arr[1];
+				$email = $arr[2];
+				echo "Welcome " . $clientname;
 			?>
 		</h1>
 		<hr>
@@ -17,12 +33,12 @@
 		<div class="column is-one-quarter is-offset-one-quarter">
 
 			<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-		    	<label class="label">Country: </label>
-		    	<div class="control"><input class="input" type="text" placeholder="Country" name="country"></div>
+		    	<label class="label">Post tags: </label>
+		    	<div class="control"><input class="input" type="text" placeholder="&rarr;" name="country"></div>
 
-		    	<label class="label">National animal:</label>
+		    	<label class="label">Post text:</label>
 		    	<div class="control">
-		    		<input class="input" type="text" placeholder="National Animal" name="animal">
+		    		<input class="input" type="text" placeholder="&rarr;" name="animal">
 		    	</div>
 		    	<br>
 		    	<input class="button is-primary" type="submit" name="submit">
@@ -73,6 +89,10 @@
     		// print them one after another
     		echo '<div class="columns"><div class="column is-half is-offset-one-quarter">';
     		while($row = mysqli_fetch_row($result)) {
+    			$tag = $row[1];
+    			$id = $row[0];
+    			$text = $row[2];
+    			$usr = $row[3];
     			echo '<article class="media">
   						<figure class="media-left">
     						<p class="image is-64x64">
@@ -82,9 +102,9 @@
 						<div class="media-content">
 						 	<div class="content">
 						      	<p>
-						        <strong>'.$row[1].'</strong> <small>'.$row[0].'</small>
+						        <strong>'.$usr.'</strong> <small>ID: '.$id.'</small>
 						        <br>
-						        '.$row[2].'
+						        '.$text.' <br><a class="button is-primary is-small">'.$tag.'</a>
 						      	</p>
 						    </div>
 						    <nav class="level is-mobile">
@@ -93,16 +113,12 @@
 						          		<span class="icon is-small"><i class="fa fa-reply"></i></span>
 						        	</a>
 						        	<a class="level-item">
-						          		<span class="icon is-small"><i class="fa fa-retweet"></i></span>
-						        	</a>
-						        	<a class="level-item">
 						        	  	<span class="icon is-small"><i class="fa fa-heart"></i></span>
 						        	</a>
 						      	</div>
 						    </nav>
 						</div>
 					</article><hr><br>';
-					// '<a class="level-item" href='.$_SERVER['PHP_SELF'].'>'
     		}
 		    echo "</div></div>";
 
@@ -122,7 +138,7 @@
 		// check to see if user has entered anything
 		if ($animal != "") {
 	 		// build SQL query
-			$query = "INSERT INTO symbols (country, animal) VALUES ('$country', '$animal')";
+			$query = "INSERT INTO symbols (country, animal, username) VALUES ('$country', '$animal', '$clientname')";
 			// run the query
      		$result = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysql_error());
 			// refresh the page to show new update
