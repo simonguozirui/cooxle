@@ -7,7 +7,7 @@
             </a>
         </div>
         <div class="nav-right">
-            <a class="nav-item is-tab">
+            <a class="nav-item is-tab" href="user.php">
                 <?php
                     $arr = array_values($_SESSION['user']);
                     echo $arr[2];

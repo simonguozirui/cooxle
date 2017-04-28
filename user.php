@@ -31,32 +31,6 @@
 		</h1>
 		<hr>
 	</center>
-	<div class="columns is-mobile">
-		<div class="column is-one-quarter is-offset-one-quarter">
-
-			<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-		    	<label class="label">Post tag: </label>
-		    	<div class="control"><input class="input" type="text" placeholder="&#x21AA;" name="country"></div>
-
-		    	<label class="label">Post text:</label>
-		    	<div class="control">
-		    		<input class="input" type="text" placeholder="&#x21AA;" name="animal">
-		    	</div>
-		    	<br>
-		    	<input class="button is-primary" type="submit" name="submit">
-		    </form>
-		</div>
-		<div class="column is-one-quarter">
-			<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-				<label class="label">Search</label>
-                <p class="control">
-           	        <input name="search" class="input" type="text" placeholder="Search for tags">
-                </p>
-                <br>
-                <input class="button is-primary" type="submit" name="submit">
-   	        </form>
-		</div>
-	</div>
 	<?php
 
 		if(empty($_SESSION['user'])) {
@@ -82,17 +56,12 @@
 		// create query
 		$search = $_POST["search"];
 
-		$query = "SELECT * FROM symbols";
-		if ($_POST["search"] != '') {
-			echo '<div class="columns"><div class="column is-half is-offset-one-quarter"><div class="notification">Search results for '.$search.'<br><a href="index.php">Back</a></div></div></div>';
-			$query  = "SELECT * FROM symbols WHERE `country` = '$search'";
-		}
+		$query = "SELECT * FROM symbols WHERE username = '$clientname'";
 
 		// execute query
 		$result = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysql_error());
 		// $result = array_reverse($initial);
 		// see if any rows were returned
-
 
 		if (mysqli_num_rows($result) > 0) {
 
@@ -144,44 +113,7 @@
 
 		// free result set memory
 		mysqli_free_result($connection,$result);
-
-		// set variable values to HTML form inputs
-		$postTags = $_POST['country'];
-		$postTags = strtolower($postTags);
-    	$postText = $_POST['animal'];
-
-		// check to see if user has entered anything
-		if ($postText != "") {
-	 		// build SQL query
-			$query = "INSERT INTO symbols (country, animal, username) VALUES ('$postTags', '$postText', '$clientname')";
-			// run the query
-     		$result = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysql_error());
-			// refresh the page to show new update
-	 		echo "<meta http-equiv='refresh' content='0'>";
-		}
-
-		// if DELETE pressed, set an id, if id is set then delete it from DB
-		// if (isset($_GET['id'])) {
-
-		// 	// create query to delete record
-		// 	echo $_SERVER['PHP_SELF'];
-  //   		$query = "DELETE FROM symbols WHERE id = ".$_GET['id'];
-
-		// 	// run the query
-  //    		$result = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysql_error());
-
-		// 	// reset the url to remove id $_GET variable
-		// 	$location = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
-		// 	echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
-		// 	exit;
-
-		// }
-
-
-		// close connection
 		mysqli_close($connection);
-
-	?>
-
+		?>
 	</body>
 </html>
