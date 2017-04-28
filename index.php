@@ -48,7 +48,7 @@
 			<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
 				<label class="label">Search</label>
                 <p class="control">
-           	        <input class="input" type="text" placeholder="Search for tags">
+           	        <input name="search" class="input" type="text" placeholder="Search for tags">
                 </p>
                 <br>
                 <input class="button is-primary" type="submit" name="submit">
@@ -79,11 +79,16 @@
 
 		// create query
 		$query = "SELECT * FROM symbols";
+		if ($_POST["search"] != '') {
+			$query  = "SELECT * FROM symbols WHERE `country` = $_POST["search"]";
+		}
 
 		// execute query
 		$result = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysql_error());
 		// $result = array_reverse($initial);
 		// see if any rows were returned
+
+
 		if (mysqli_num_rows($result) > 0) {
 
     		// print them one after another
@@ -136,13 +141,13 @@
 		mysqli_free_result($connection,$result);
 
 		// set variable values to HTML form inputs
-		$country = $_POST['country'];
-    	$animal = $_POST['animal'];
+		$postTags = $_POST['country'];
+    	$postText = $_POST['animal'];
 
 		// check to see if user has entered anything
-		if ($animal != "") {
+		if ($postText != "") {
 	 		// build SQL query
-			$query = "INSERT INTO symbols (country, animal, username) VALUES ('$country', '$animal', '$clientname')";
+			$query = "INSERT INTO symbols (country, animal, username) VALUES ('$postTags', '$postText', '$clientname')";
 			// run the query
      		$result = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysql_error());
 			// refresh the page to show new update
@@ -165,6 +170,7 @@
 			exit;
 
 		}
+
 
 		// close connection
 		mysqli_close($connection);
