@@ -89,7 +89,7 @@
 						        <br>
 						        '.$text.' <br>' . $tagText.'
 						      	</p>
-						    </div>
+						    </div>'./*'
 						    <nav class="level is-mobile">
 						    	<div class="level-left">
 						        	<a class="level-item">
@@ -100,7 +100,9 @@
 						        	</a>
 						      	</div>
 						    </nav>
-						</div>
+						    '.*/
+
+						'</div>
 					</article><hr><br>';
     		}
 		    echo "</div></div>";
