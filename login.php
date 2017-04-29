@@ -121,7 +121,7 @@
         <form action="login.php" method="post">
         <div class="field">
           <p class="control has-icons-left has-icons-right">
-            <input type="text" name="username" value="<?php echo $submitted_username; ?>" class="input is-success" type="text" placeholder="Username">
+            <input type="text" name="username" value="<?php echo $submitted_username; ?>" class="input is-primary" type="text" placeholder="Username">
             <span class="icon is-small is-left">
               <i class="fa fa-user"></i>
             </span>
@@ -129,7 +129,7 @@
         </div>
         <div class="field">
           <p class="control has-icons-left has-icons-right">
-            <input type="password" name="password" value="" class="input is-success" placeholder="Password">
+            <input type="password" name="password" value="" class="input is-primary" placeholder="Password">
             <span class="icon is-small is-left">
               <i class="fa fa-lock"></i>
             </span>

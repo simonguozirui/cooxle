@@ -87,7 +87,7 @@
 
 		$query = "SELECT * FROM `symbols` ORDER BY `symbols`.`id` DESC";
 		if ($_POST["search"] != '') {
-			echo '<div class="columns"><div class="column is-half is-offset-one-quarter"><div class="notification">Search results for '.$search.'<br><a href="index.php">Back</a></div></div></div>';
+			echo '<div class="column is-half is-offset-one-quarter"><div class="notification">Search results for '.$search.'<br><a href="index.php">Back</a></div></div></div>';
 			$query  = "SELECT * FROM symbols WHERE `country` = '$search'";
 		}
 
@@ -100,7 +100,7 @@
 		if (mysqli_num_rows($result) > 0) {
 
     		// print them one after another
-    		echo '<div class="columns"><div class="column is-half is-offset-one-quarter">';
+    		echo '<div class="container">';
     		while($row = mysqli_fetch_row($result)) {
     			$tag = $row[1];
     			$id = $row[0];
@@ -108,9 +108,9 @@
     			$usr = $row[3];
     			$tagText = "";
     			if ($tag != "") {
-    				$tagText = '<span class="tag is-primary is-small">'.$tag.'</span>';
+    				$tagText = '<a href="tag.php?'.$tag.'"><span class="tag is-primary is-small">'.$tag.'</span></a>';
     			}
-    			echo '<article class="media">
+    			echo '<div class="box"><article class="media">
   						<figure class="media-left">
     						<p class="image is-64x64">
 						      <img src="http://bulma.io/images/placeholders/128x128.png">
@@ -135,9 +135,9 @@
 						      	</div>
 						    </nav>
 						</div>
-					</article><hr><br>';
+					</article></div>';
     		}
-		    echo "</div></div>";
+		    echo "</div>";
 
 		} else {
 
