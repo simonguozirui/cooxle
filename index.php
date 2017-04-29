@@ -36,13 +36,13 @@
 
 			<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
 		    	<label class="label">Post tag: </label>
-		    	<div class="control"><input class="input" type="text" placeholder="&#x21AA;" name="country"></div>
+		    	<div class="control"><input class="input" type="text" placeholder="&#x21AA;" name="tag"></div>
 
 		    	<label class="label">Post text:</label>
 		    	<div class="control">
 		    		<!-- <input class="input" type="text" placeholder="&#x21AA;" name="animal"> -->
 		    		<p class="control">
-    					<textarea class="textarea" type="text" placeholder="&#x21AA;" name="animal"></textarea>
+    					<textarea class="textarea" type="text" placeholder="&#x21AA; maximum 255 characters" name="text"></textarea>
   					</p>
 		    	</div>
 		    	<br>
@@ -149,9 +149,9 @@
 		mysqli_free_result($connection,$result);
 
 		// set variable values to HTML form inputs
-		$postTags = $_POST['country'];
+		$postTags = $_POST['tag'];
 		$postTags = strtolower($postTags);
-    	$postText = $_POST['animal'];
+    	$postText = $_POST['text'];
 
 		// check to see if user has entered anything
 		if ($postText != "") {
@@ -185,6 +185,6 @@
 		mysqli_close($connection);
 
 	?>
-
+	<!-- $_SERVER['QUERY_STRING'] may be important in the near future-->
 	</body>
 </html>
