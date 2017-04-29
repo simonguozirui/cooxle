@@ -40,7 +40,10 @@
 
 		    	<label class="label">Post text:</label>
 		    	<div class="control">
-		    		<input class="input" type="text" placeholder="&#x21AA;" name="animal">
+		    		<!-- <input class="input" type="text" placeholder="&#x21AA;" name="animal"> -->
+		    		<p class="control">
+    					<textarea class="textarea" type="text" placeholder="&#x21AA;" name="animal"></textarea>
+  					</p>
 		    	</div>
 		    	<br>
 		    	<input class="button is-primary" type="submit" name="submit">
@@ -82,7 +85,7 @@
 		// create query
 		$search = $_POST["search"];
 
-		$query = "SELECT * FROM symbols";
+		$query = "SELECT * FROM `symbols` ORDER BY `symbols`.`id` DESC";
 		if ($_POST["search"] != '') {
 			echo '<div class="columns"><div class="column is-half is-offset-one-quarter"><div class="notification">Search results for '.$search.'<br><a href="index.php">Back</a></div></div></div>';
 			$query  = "SELECT * FROM symbols WHERE `country` = '$search'";
