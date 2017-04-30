@@ -23,9 +23,13 @@
 			<h1 class="title">
 				<?php
 
-			    	$arr = array_values($_SESSION['user']);
-					$clientname = $arr[1];
+					$clientname = $_SERVER['QUERY_STRING'];
+					if (strlen($clientname)< 1) {
+						$location = "http://" . $_SERVER['HTTP_HOST'] . "/index.php";
+						echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
+					}
 					echo "User: $clientname";
+
 				?>
 			</h1>
 			<hr>

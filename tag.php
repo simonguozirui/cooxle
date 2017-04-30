@@ -21,6 +21,10 @@
 			<?php
 
 				$curTag = $_SERVER['QUERY_STRING'];
+				if (strlen($curTag)< 1) {
+					$location = "http://" . $_SERVER['HTTP_HOST'] . "/index.php";
+					echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
+				}
 				echo '<span class="tag is-primary is-large">'.$curTag.'</span>';
 			?>
 		</h1>
