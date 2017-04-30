@@ -7,11 +7,12 @@
             </a>
         </div>
         <div class="nav-right">
-            <a class="nav-item is-tab" href="user.php">
-                <?php
-                    $arr = array_values($_SESSION['user']);
-                    echo $arr[2];
-                ?>
+            <?php $arr = array_values($_SESSION['user']); ?>
+            <a class="nav-item is-tab" href="user.php?<?php echo $arr[1];?>">
+
+
+                <?php echo $arr[1];?>
+
             </a>
             <a class="nav-item is-tab" href="logout.php">Log Out</a>
         </div>

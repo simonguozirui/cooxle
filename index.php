@@ -127,7 +127,7 @@
 						<div class="media-content">
 						 	<div class="content">
 						      	<p>
-						        <strong>'.$usr.'</strong> <small>ID: '.$id.'</small>
+						        <strong><a href="user.php?'.$usr.'">'.$usr.'</a></strong> <small>ID: '.$id.'</small>
 						        <br>
 						        '.$text.' <br>' . $tagText.'
 						      	</p>
