@@ -51,17 +51,19 @@
 		if (mysqli_num_rows($result) > 0) {
 
     		// print them one after another
-    		echo '<div class="post-container">';
+    		echo '<div class="columns">"';
     		while($row = mysqli_fetch_row($result)) {
-    			$tag = $row[1];
-    			$id = $row[0];
-    			$text = $row[2];
-    			$usr = $row[3];
+    			$tag = $row[1]; // get tag from 2nd array index
+    			$id = $row[0]; // get id from 1st array index
+    			$text = $row[2]; // get post text from 3rd array index
+    			$usr = $row[3]; // get username from 4th array index
     			$tagText = "";
+    			// if there is a tag, create a button for it.
     			if ($tag != "") {
     				$tagText = '<a href="tag.php?'.$tag.'"><span class="tag is-primary is-small">'.$tag.'</span></a>';
     			}
-    			echo '<div class="box"><article class="media">
+    			// post html using css classes and string concatnation
+    			echo '<div class="column is-half is-offset-one-quarter"><div class="box"><article class="media">
   						<figure class="media-left">
     						<p class="image is-64x64">
 						      <img src="http://bulma.io/images/placeholders/128x128.png">
@@ -86,9 +88,9 @@
 						      	</div>
 						    </nav>
 						</div>
-					</article></div>';
+					</article></div></div></div>';
     		}
-		    echo "</div>";
+		    echo "</div></div>";
 
 		} else {
 
