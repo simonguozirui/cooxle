@@ -1,7 +1,4 @@
-.post-container {
-	display: block;
-	padding-left: 25vw;
-	padding-right: 25vw;
+.column {
   	overflow-wrap: break-word;
   	word-wrap: break-word;
   	-ms-word-break: break-all;

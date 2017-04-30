@@ -1,11 +1,15 @@
 <html>
+	<!-- Use constant head file in required/  -->
 	<?php include_once("required/head.php") ?>
 	<body>
+	<!-- import common.php -->
 	<?php require("required/common.php"); ?>
+	<!-- Use constant nav in required/ -->
 	<?php include_once("required/nav.php") ?>
 
 	<center>
 		<?php
+			// If the user has not logged in
 			if(empty($_SESSION['user'])) {
 
 				// If they are not, we redirect them to the login page.
@@ -22,11 +26,11 @@
 		?>
 		<h1 class="title">
 			<?php
-
+				// get array values from login
 		    	$arr = array_values($_SESSION['user']);
-				$clientname = $arr[1];
-				$email = $arr[2];
-				echo "Welcome " . $clientname;
+				$clientname = $arr[1]; // assign username to variable clientname
+				$email = $arr[2]; // assing email to variable email
+				echo "Welcome " . $clientname; // Say hello to the user
 			?>
 		</h1>
 		<hr>
@@ -85,33 +89,36 @@
 		// create query
 		$search = $_POST["search"];
 
-
+		// if the person looks up a tag
 		if ($_POST["search"] != '') {
+			// redirect them to tag.php with the tag name as the query string
 			$location = "http://" . $_SERVER['HTTP_HOST'] . "/tag.php?".$search;
 			echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
 		}
-
+		// search symbols in from most to least recent
 		$query = "SELECT * FROM `symbols` ORDER BY `symbols`.`id` DESC";
 		// execute query
 		$result = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysql_error());
 		// $result = array_reverse($initial);
 		// see if any rows were returned
 
-
+		// if there are rows
 		if (mysqli_num_rows($result) > 0) {
 
     		// print them one after another
-    		echo '<div class="post-container">';
+    		echo '<div class="columns">"';
     		while($row = mysqli_fetch_row($result)) {
-    			$tag = $row[1];
-    			$id = $row[0];
-    			$text = $row[2];
-    			$usr = $row[3];
+    			$tag = $row[1]; // get tag from 2nd array index
+    			$id = $row[0]; // get id from 1st array index
+    			$text = $row[2]; // get post text from 3rd array index
+    			$usr = $row[3]; // get username from 4th array index
     			$tagText = "";
+    			// if there is a tag, create a button for it.
     			if ($tag != "") {
     				$tagText = '<a href="tag.php?'.$tag.'"><span class="tag is-primary is-small">'.$tag.'</span></a>';
     			}
-    			echo '<div class="box"><article class="media">
+    			// post html using css classes and string concatnation
+    			echo '<div class="column is-half is-offset-one-quarter"><div class="box"><article class="media">
   						<figure class="media-left">
     						<p class="image is-64x64">
 						      <img src="http://bulma.io/images/placeholders/128x128.png">
@@ -136,24 +143,26 @@
 						      	</div>
 						    </nav>
 						</div>
-					</article></div>';
+					</article></div></div></div>';
     		}
-		    echo "</div>";
-
+		    echo "</div></div>";
+		// if there are no posts
 		} else {
 
-    		// print status message
+    		// tell the user in a red notification
     		echo '<div class="columns is-mobile"><div class="column is-half is-offset-one-quarter"><div class="notification is-danger">No posts found</div></div></div>';
 		}
 
 		// free result set memory
 		mysqli_free_result($connection,$result);
 
+		// This is the part of the program that handles created posts \\
+
 		// set variable values to HTML form inputs
-		$postTags = $_POST['tag'];
-		$postTags = strtolower($postTags);
-		$postTags = str_replace(" ", "_", $postTags);
-    	$postText = $_POST['text'];
+		$postTags = $_POST['tag']; // get the tag and assign it to variable postTags
+		$postTags = strtolower($postTags); // make the tag lowercase
+		$postTags = str_replace(" ", "_", $postTags); // replace spaces with underscores. (Snake case woohoo)
+    	$postText = $_POST['text']; // get the post text and assign it to variable postText
 
 		// check to see if user has entered anything
 		if ($postText != "") {
@@ -167,7 +176,7 @@
 		mysqli_close($connection);
 
 	?>
-	<!-- $_SERVER['QUERY_STRING'] may be important in the near future-->
+	<!-- show the footer -->
 	<?php include_once('required/footer.php'); ?>
 	</body>
 </html>
