@@ -118,7 +118,7 @@
     				$tagText = '<a href="tag.php?'.$tag.'"><span class="tag is-primary is-small">'.$tag.'</span></a>';
     			}
     			// post html using css classes and string concatnation
-    			echo '<div class="column is-half is-offset-one-quarter><div class="box"><article class="media">
+    			echo '<div class="column is-half is-offset-one-quarter"><div class="box"><article class="media">
   						<figure class="media-left">
     						<p class="image is-64x64">
 						      <img src="http://bulma.io/images/placeholders/128x128.png">
@@ -143,7 +143,7 @@
 						      	</div>
 						    </nav>
 						</div>
-					</article></div></div>';
+					</article></div></div></div>';
     		}
 		    echo "</div></div>";
 		// if there are no posts
