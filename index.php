@@ -1,8 +1,8 @@
 <html>
-	<?php include_once("head.php") ?>
+	<?php include_once("required/head.php") ?>
 	<body>
-	<?php require("common.php"); ?>
-	<?php include_once("nav.php") ?>
+	<?php require("required/common.php"); ?>
+	<?php include_once("required/nav.php") ?>
 
 	<center>
 		<?php
@@ -167,5 +167,6 @@
 
 	?>
 	<!-- $_SERVER['QUERY_STRING'] may be important in the near future-->
+	<?php include_once('required/footer.php'); ?>
 	</body>
 </html>

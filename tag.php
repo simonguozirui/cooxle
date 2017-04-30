@@ -98,5 +98,6 @@
 		mysqli_free_result($connection,$result);
 		mysqli_close($connection);
 		?>
+		<?php include_once('required/footer.php'); ?>
 	</body>
 </html>
