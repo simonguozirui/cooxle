@@ -31,7 +31,7 @@
 		</h1>
 		<hr>
 	</center>
-	<div class="columns is-mobile">
+	<div class="columns">
 		<div class="column is-one-quarter is-offset-one-quarter">
 
 			<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
