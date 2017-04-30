@@ -53,7 +53,7 @@
 			<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
 				<label class="label">Search</label>
                 <p class="control">
-           	        <input name="search" class="input" type="text" placeholder="Search for tags">
+           	        <input name="search" class="input" id="lookup" type="text" placeholder="Search for tags">
                 </p>
                 <br>
                 <input class="button is-primary" type="submit" name="submit">
@@ -85,12 +85,13 @@
 		// create query
 		$search = $_POST["search"];
 
-		$query = "SELECT * FROM `symbols` ORDER BY `symbols`.`id` DESC";
+
 		if ($_POST["search"] != '') {
-			echo '<div class="column is-half is-offset-one-quarter"><div class="notification">Search results for '.$search.'<br><a href="index.php">Back</a></div></div></div>';
-			$query  = "SELECT * FROM symbols WHERE `country` = '$search'";
+			$location = "http://" . $_SERVER['HTTP_HOST'] . "/tag.php?".$search;
+			echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
 		}
 
+		$query = "SELECT * FROM `symbols` ORDER BY `symbols`.`id` DESC";
 		// execute query
 		$result = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysql_error());
 		// $result = array_reverse($initial);

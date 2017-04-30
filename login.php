@@ -1,8 +1,8 @@
-<?php include_once("head.php") ?>
+<?php include_once("required/head.php") ?>
 <?php
 
     // First we execute our common code to connection to the database and start the session
-    require("common.php");
+    require("required/common.php");
 
     // This variable will be used to re-display the user's username to them in the
     // login form if they fail to enter the correct password.  It is initialized here
