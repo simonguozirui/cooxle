@@ -44,7 +44,7 @@
 
 		$search = $_POST["search"];
 
-		$query = "SELECT * FROM symbols WHERE country = '$curTag'";
+		$query = "SELECT * FROM symbols WHERE country = '$curTag' ORDER BY `symbols`.`id` DESC";
 
 		$result = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysql_error());
 

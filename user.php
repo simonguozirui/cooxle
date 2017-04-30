@@ -25,7 +25,6 @@
 
 			    	$arr = array_values($_SESSION['user']);
 					$clientname = $arr[1];
-					$email = $arr[2];
 					echo "User: $clientname";
 				?>
 			</h1>
@@ -57,7 +56,7 @@
 		// create query
 		$search = $_POST["search"];
 
-		$query = "SELECT * FROM symbols WHERE username = '$clientname'";
+		$query = "SELECT * FROM symbols WHERE username = '$clientname' ORDER BY `symbols`.`id` DESC";
 
 		// execute query
 		$result = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysql_error());
