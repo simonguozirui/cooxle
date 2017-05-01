@@ -3,23 +3,17 @@
 	<?php include_once("required/head.php") ?>
 	<body>
 	<!-- import common.php -->
-	<?php require("required/common.php"); ?>
 	<!-- Use constant nav in required/ -->
-	<?php include_once("required/nav.php") ?>
+	<?php
+		require("required/common.php");
+		include_once("required/nav.php");
+		require("required/security.php");
+	?>
 
 	<center>
 		<h1 class="title">
 			<?php
-				if(empty($_SESSION['user'])) {
-
-				$location = "http://" . $_SERVER['HTTP_HOST'] . "/login.php";
-				echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
 				//exit;
-
-		       	die("<center><div class='notification is-danger'>
-	              		Redirecting to login
-	            		</div></center>");
-		   		}
 				// get array values from login
 		    	$arr = array_values($_SESSION['user']);
 				$clientname = $arr[1]; // assign username to variable clientname
