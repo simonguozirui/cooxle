@@ -1,8 +1,8 @@
-<?php include_once("head.php") ?>
+<?php include_once("required/head.php") ?>
 <?php
 
     // First we execute our common code to connection to the database and start the session
-    require("common.php");
+    require("required/common.php");
 
     // This if statement checks to determine whether the registration form has been submitted
     // If it has, then the registration code is run, otherwise the form is displayed
@@ -198,7 +198,7 @@
         <form action="register.php" method="post">
         <div class="field">
           <p class="control has-icons-left has-icons-right">
-            <input type="text" name="username" value="" class="input is-success" placeholder="Username">
+            <input type="text" name="username" value="" class="input is-primary" placeholder="Username">
             <span class="icon is-small is-left">
               <i class="fa fa-user"></i>
             </span>
@@ -206,7 +206,7 @@
         </div>
         <div class="field">
           <p class="control has-icons-left has-icons-right">
-            <input type="text" name="email" value="" class="input is-success" placeholder="Email">
+            <input type="text" name="email" value="" class="input is-primary" placeholder="Email">
             <span class="icon is-small is-left">
               <i class="fa fa-envelope"></i>
             </span>
@@ -214,7 +214,7 @@
         </div>
         <div class="field">
           <p class="control has-icons-left has-icons-right">
-            <input type="password" name="password" value="" class="input is-success" placeholder="Password">
+            <input type="password" name="password" value="" class="input is-primary" placeholder="Password">
             <span class="icon is-small is-left">
               <i class="fa fa-lock"></i>
             </span>

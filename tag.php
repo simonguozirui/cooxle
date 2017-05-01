@@ -76,7 +76,7 @@
 						<div class="media-content">
 						 	<div class="content">
 						      	<p>
-						        <strong>'.$usr.'</strong> <small>ID: '.$id.'</small>
+						        <strong><a href="user.php?'.$usr.'">'.$usr.'</a></strong> <small>ID: '.$id.'</small>
 						        <br>
 						        '.$text.' <br>' . $tagText.'
 						      	</p>
@@ -95,7 +95,6 @@
 					</article></div></div></div>';
     		}
 		    echo "</div></div>";
-
 		} else {
 
     		echo '<div class="columns is-mobile"><div class="column is-half is-offset-one-quarter"><div class="notification is-danger">No posts found</div></div></div>';

@@ -55,9 +55,17 @@
 		</div>
 		<div class="column is-one-quarter">
 			<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-				<label class="label">Search</label>
+				<label class="label">Search tags:</label>
                 <p class="control">
-           	        <input name="search" class="input" id="lookup" type="text" placeholder="Search for tags">
+           	        <input name="tag-lookup" class="input" type="text" placeholder="Search for tags">
+                </p>
+                <br>
+                <input class="button is-primary" type="submit" name="submit">
+   	        </form>
+   	        <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
+				<label class="label">Search users:</label>
+                <p class="control">
+           	        <input name="user-lookup" class="input" type="text" placeholder="Search for users">
                 </p>
                 <br>
                 <input class="button is-primary" type="submit" name="submit">
@@ -86,13 +94,20 @@
 		// select database
 		mysqli_select_db($connection, $dbname) or die ("Unable to select database!");
 
-		// create query
-		$search = $_POST["search"];
+
+		$searchTags = $_POST["tag-lookup"];
+		$searchUser = $_POST["user-lookup"];
 
 		// if the person looks up a tag
-		if ($_POST["search"] != '') {
+		if ($searchTags != '') {
 			// redirect them to tag.php with the tag name as the query string
-			$location = "http://" . $_SERVER['HTTP_HOST'] . "/tag.php?".$search;
+			$location = "http://" . $_SERVER['HTTP_HOST'] . "/tag.php?".$searchTags;
+			echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
+		}
+		// if the person looks up a user
+		elseif ($searchUser != '') {
+			// redirect them to user.php with the username as the query string
+			$location = "http://" . $_SERVER['HTTP_HOST'] . "/user.php?".$searchUser;
 			echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
 		}
 		// search symbols in from most to least recent

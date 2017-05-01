@@ -70,7 +70,7 @@
 		if (mysqli_num_rows($result) > 0) {
 
     		// print them one after another
-			echo '<div class="columns">"';
+    		echo '<div class="columns">"';
     		while($row = mysqli_fetch_row($result)) {
     			$tag = $row[1]; // get tag from 2nd array index
     			$id = $row[0]; // get id from 1st array index
@@ -91,7 +91,7 @@
 						<div class="media-content">
 						 	<div class="content">
 						      	<p>
-						        <strong>'.$usr.'</strong> <small>ID: '.$id.'</small>
+						        <strong><a href="user.php?'.$usr.'">'.$usr.'</a></strong> <small>ID: '.$id.'</small>
 						        <br>
 						        '.$text.' <br>' . $tagText.'
 						      	</p>
