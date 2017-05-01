@@ -8,24 +8,18 @@
 	<?php include_once("required/nav.php") ?>
 
 	<center>
-		<?php
-			// If the user has not logged in
-			if(empty($_SESSION['user'])) {
+		<h1 class="title">
+			<?php
+				if(empty($_SESSION['user'])) {
 
-				// If they are not, we redirect them to the login page.
 				$location = "http://" . $_SERVER['HTTP_HOST'] . "/login.php";
 				echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
 				//exit;
 
-		       	// Remember that this die statement is absolutely critical.  Without it,
-		       	// people can view your members-only content without logging in.
 		       	die("<center><div class='notification is-danger'>
 	              		Redirecting to login
 	            		</div></center>");
-		   	}
-		?>
-		<h1 class="title">
-			<?php
+		   		}
 				// get array values from login
 		    	$arr = array_values($_SESSION['user']);
 				$clientname = $arr[1]; // assign username to variable clientname
@@ -73,18 +67,6 @@
 		</div>
 	</div>
 	<?php
-
-		if(empty($_SESSION['user'])) {
-
-			// If they are not, we redirect them to the login page.
-			$location = "http://" . $_SERVER['HTTP_HOST'] . "/login.php";
-			echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
-			//exit;
-
-        	// Remember that this die statement is absolutely critical.  Without it,
-        	// people can view your members-only content without logging in.
-        	die("Redirecting to login.php");
-    	}
 
 		// To access $_SESSION['user'] values put in an array, show user his username
 
