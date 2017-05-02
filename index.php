@@ -117,7 +117,8 @@
     		}
 		    echo "</div></div>";
 		// if there are no posts
-		} else {
+		}
+		else {
 
     		// tell the user in a red notification
     		echo '<div class="columns is-mobile"><div class="column is-half is-offset-one-quarter"><div class="notification is-danger">No posts found</div></div></div>';
