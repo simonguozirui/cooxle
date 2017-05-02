@@ -13,7 +13,6 @@
 	<center>
 		<h1 class="title">
 			<?php
-				//exit;
 				// get array values from login
 		    	$arr = array_values($_SESSION['user']);
 				$clientname = $arr[1]; // assign username to variable clientname
