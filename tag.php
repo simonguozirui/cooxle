@@ -17,6 +17,8 @@
 			?>
 		</h1>
 		<hr>
+		<a href="search.php">Search</a>
+		<br><br>
 	</center>
 	<?php
 

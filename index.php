@@ -23,45 +23,25 @@
 		<hr>
 	</center>
 	<div class="columns">
-		<div class="column is-one-quarter is-offset-one-quarter">
+		<div class="column is-half is-offset-one-quarter">
 
 			<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
 		    	<label class="label">Post tag: </label>
-		    	<div class="control"><input class="input" type="text" placeholder="&#x21AA;" name="tag"></div>
+		    	<div class="control"><input class="input" type="text" placeholder="&#x21AA; (not required)" name="tag"></div>
 
 		    	<label class="label">Post text:</label>
 		    	<div class="control">
 		    		<!-- <input class="input" type="text" placeholder="&#x21AA;" name="animal"> -->
 		    		<p class="control">
-    					<textarea class="textarea" type="text" placeholder="&#x21AA; maximum 255 characters" name="text"></textarea>
+    					<textarea class="textarea" type="text" placeholder="&#x21AA; (maximum 255 characters)" name="text"></textarea>
   					</p>
 		    	</div>
 		    	<br>
 		    	<input class="button is-primary" type="submit" name="submit">
 		    </form>
 		</div>
-		<div class="column is-one-quarter">
-			<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-				<label class="label">Search tags:</label>
-                <p class="control">
-           	        <input name="tag-lookup" class="input" type="text" placeholder="Search for tags">
-                </p>
-                <br>
-                <input class="button is-primary" type="submit" name="submit">
-   	        </form>
-   	        <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-				<label class="label">Search users:</label>
-                <p class="control">
-           	        <input name="user-lookup" class="input" type="text" placeholder="Search for users">
-                </p>
-                <br>
-                <input class="button is-primary" type="submit" name="submit">
-   	        </form>
-		</div>
 	</div>
 	<?php
-
-		// To access $_SESSION['user'] values put in an array, show user his username
 
 		// open connection
 		$connection = mysqli_connect($host, $username, $password) or die ("Unable to connect!");

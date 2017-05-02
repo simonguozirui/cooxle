@@ -9,19 +9,25 @@
     if(!empty($_POST))
     {
         // Ensure that the user has entered a non-empty username
-        if(empty($_POST['username']))
+        if(empty($_POST['username']) or strpos($_POST['username']) != false)
         {
             // Note that die() is generally a terrible way of handling user errors
             // like this.  It is much better to display the error with the form
             // and allow the user to correct their mistake.  However, that is an
             // exercise for you to implement yourself.
-            die("Please enter a username.");
+            $message = "Please enter a valid username. (Username cannot contain spaces)";
+            die("<center><div class='notification is-danger'>
+              $message <br> <a href='register.php'>Back</a>
+            </div></center>");
         }
 
         // Ensure that the user has entered a non-empty password
         if(empty($_POST['password']))
         {
-            die("Please enter a password.");
+            $message = "Please enter a password.";
+            die("<center><div class='notification is-danger'>
+              $message <br> <a href='register.php'>Back</a>
+            </div></center>");
         }
 
         // Make sure the user entered a valid E-Mail address
@@ -77,7 +83,10 @@
         // the database already and we should not allow the user to continue.
         if($row)
         {
-            die("This username is already in use");
+            $message = "This username is already in use";
+            die("<center><div class='notification is-danger'>
+              $message <br> <a href='register.php'>Back</a>
+            </div></center>");
         }
 
         // Now we perform the same type of check for the email address, in order

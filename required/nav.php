@@ -6,6 +6,7 @@
                 <img src="img/logo.png" alt="logo">
             </a>
             <a class="nav-item is-tab" href="about.php">About</a>
+            <a class="nav-item is-tab" href="search.php">Search</a>
         </div>
         <div class="nav-right">
             <?php $arr = array_values($_SESSION['user']); ?>

@@ -8,3 +8,6 @@
     -webkit-hyphens: auto;
     hyphens: auto;
 }
+nav.nav {
+	overflow-x: auto;
+}
