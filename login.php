@@ -26,10 +26,10 @@
             WHERE
                 username = :username
         ";
-
+        $usr = htmlentities($_POST['username'], ENT_QUOTES, 'UTF-8');
         // The parameter values
         $query_params = array(
-            ':username' => $_POST['username']
+            ':username' => $usr
         );
 
         try
@@ -105,7 +105,7 @@
             // always use htmlentities on user submitted values before displaying them
             // to any users (including the user that submitted them).  For more information:
             // http://en.wikipedia.org/wiki/XSS_attack
-            $submitted_username = htmlentities($_POST['username'], ENT_QUOTES, 'UTF-8');
+            $submitted_username = htmlentities($usr, ENT_QUOTES, 'UTF-8');
         }
     }
 

@@ -129,10 +129,10 @@
 		// This is the part of the program that handles created posts \\
 
 		// set variable values to HTML form inputs
-		$postTags = $_POST['tag']; // get the tag and assign it to variable postTags
+		$postTags = htmlspecialchars($_POST['tag']); // get the tag and assign it to variable postTags
 		$postTags = strtolower($postTags); // make the tag lowercase
 		$postTags = str_replace(" ", "_", $postTags); // replace spaces with underscores. (Snake case woohoo)
-    	$postText = $_POST['text']; // get the post text and assign it to variable postText
+    	$postText = htmlspecialchars($_POST['text']); // get the post text and assign it to variable postText
 
 		// check to see if user has entered anything
 		if ($postText != "") {
