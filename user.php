@@ -13,7 +13,7 @@
 						$location = "http://" . $_SERVER['HTTP_HOST'] . "/index.php";
 						echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
 					}
-					echo "User: $clientname";
+					echo "User: ". $clientname;
 
 				?>
 			</h1>

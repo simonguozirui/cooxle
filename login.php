@@ -137,7 +137,10 @@
         </div>
         <center><button type="submit" class="button is-primary is-medium">Log In</button></center>
         </form>
-        <center><p>Don't have an account? <a href="register.php">Sign Up</a></p></center>
+        <center>
+            <p>Don't have an account? <a href="register.php">Sign Up</a></p>
+            <p><a href="about.php">Learn about Cooxle</a></p>
+        </center>
         </div>
     </div>
   </div>

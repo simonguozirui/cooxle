@@ -39,13 +39,13 @@
 		if ($searchTags != '') {
 			// redirect them to tag.php with the tag name as the query string
 			$location = "http://" . $_SERVER['HTTP_HOST'] . "/tag.php?".$searchTags;
-			echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
+			echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.htmlentities($location, ENT_QUOTES, 'UTF-8').'">';
 		}
 		// if the person looks up a user
 		elseif ($searchUser != '') {
 			// redirect them to user.php with the username as the query string
 			$location = "http://" . $_SERVER['HTTP_HOST'] . "/user.php?".$searchUser;
-			echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
+			echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.htmlentities($location, ENT_QUOTES, 'UTF-8').'">';
 		}
 	?>
 
