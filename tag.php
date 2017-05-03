@@ -7,21 +7,24 @@
 	<center>
 		<h1 class="title">
 			<?php
-				// public function replace_query($string){
-				// 	str_replace("%23", "#", $string);
-				// 	str_replace("%24", "$", $string);
-				// 	str_replace("%25", "&", $string);
-				// 	str_replace("%26", "+", $string);
-				// 	str_replace("%2B", ".", $string);
-				// 	str_replace("%2C", "/", $string);
-				// 	str_replace("%2F", ":", $string);
-				// 	str_replace("%3B", ";", $string);
-				// 	str_replace("%3D", "=", $string);
-				// 	str_replace("%3F", "?", $string);
-				// 	str_replace("%40", "@", $string);
-				// }
+
 
 				$string = $_SERVER['QUERY_STRING'];
+				$string = str_replace("%23", "#", $string);
+				$string = str_replace("%24", "$", $string);
+				$string = str_replace("%25", "&", $string);
+				$string = str_replace("%26", "+", $string);
+				$string = str_replace("%2B", ".", $string);
+				$string = str_replace("%2C", "/", $string);
+				$string = str_replace("%2F", ":", $string);
+				$string = str_replace("%3C", "<", $string);
+				$string = str_replace("%3E", ">", $string);
+				$string = str_replace("%3B", ";", $string);
+				$string = str_replace("%3D", "=", $string);
+				$string = str_replace("%3F", "?", $string);
+				$string = str_replace("%40", "@", $string);
+
+
 				$curTag = htmlentities($string, ENT_QUOTES, "UTF-8");
 				if (strlen($curTag)< 1) {
 					$location = "http://" . $_SERVER['HTTP_HOST'] . "/index.php";
