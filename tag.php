@@ -3,6 +3,7 @@
 	<body>
 	<?php require("required/common.php"); ?>
 	<?php include_once("required/nav.php") ?>
+	<?php require("required/security.php") ?>
 
 	<center>
 		<h1 class="title">
@@ -38,16 +39,6 @@
 		<br><br>
 	</center>
 	<?php
-
-		if(empty($_SESSION['user'])) {
-
-			$location = "http://" . $_SERVER['HTTP_HOST'] . "/login.php";
-			echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
-			//exit;
-
-        	die("Redirecting to login.php");
-    	}
-
 
 		$connection = mysqli_connect($host, $username, $password) or die ("Unable to connect!");
 		mysqli_select_db($connection, $dbname) or die ("Unable to select database!");
