@@ -49,6 +49,6 @@
 		}
 	?>
 
-	<?php include_once('required/footer.php'); ?>
+
 	</body>
 </html>

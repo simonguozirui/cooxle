@@ -147,7 +147,6 @@
 		mysqli_close($connection);
 
 	?>
-	<!-- show the footer -->
-	<?php include_once('required/footer.php'); ?>
+
 	</body>
 </html>
