@@ -2,11 +2,12 @@
     <div class="container">
         <div class="nav-left">
 
-            <a class="nav-item is-tab is-active" href="index.php">
+            <a class="nav-item is-tab ">
                 <img src="img/logo.png" alt="logo">
             </a>
-            <a class="nav-item is-tab" href="about.php" target="_blank">About</a>
+            <a class="nav-item is-tab" href="index.php">Feeds</a>
             <a class="nav-item is-tab" href="search.php">Search</a>
+            <a class="nav-item is-tab" href="about.php" target="_blank">About</a>
         </div>
         <div class="nav-right">
             <?php $arr = array_values($_SESSION['user']); ?>
