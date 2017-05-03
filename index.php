@@ -20,7 +20,7 @@
 				echo "Welcome " . $clientname; // Say hello to the user
 			?>
 		</h1>
-		<hr>
+		<br>
 	</center>
 	<div class="columns">
 		<div class="column is-half is-offset-one-quarter">

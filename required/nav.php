@@ -2,7 +2,7 @@
     <div class="container">
         <div class="nav-left">
 
-            <a class="nav-item is-tab ">
+            <a class="nav-item is-tab" href="index.php">
                 <img src="img/logo.png" alt="logo">
             </a>
             <a class="nav-item is-tab" href="index.php">Feeds</a>
