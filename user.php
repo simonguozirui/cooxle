@@ -8,7 +8,7 @@
 			<h1 class="title">
 				<?php
 
-					$clientname = $_SERVER['QUERY_STRING'];
+					$clientname = htmlentities($_SERVER['QUERY_STRING'], ENT_QUOTES, 'UTF-8');
 					if (strlen($clientname)< 1) {
 						$location = "http://" . $_SERVER['HTTP_HOST'] . "/index.php";
 						echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';

@@ -8,7 +8,7 @@
 		<h1 class="title">
 			<?php
 
-				$curTag = $_SERVER['QUERY_STRING'];
+				$curTag = htmlentities($_SERVER['QUERY_STRING'], ENT_QUOTES, 'UTF-8');
 				if (strlen($curTag)< 1) {
 					$location = "http://" . $_SERVER['HTTP_HOST'] . "/index.php";
 					echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
@@ -33,13 +33,9 @@
 
 
 		$connection = mysqli_connect($host, $username, $password) or die ("Unable to connect!");
-
 		mysqli_select_db($connection, $dbname) or die ("Unable to select database!");
-
 		$search = $_POST["search"];
-
 		$query = "SELECT * FROM symbols WHERE country = '$curTag' ORDER BY `symbols`.`id` DESC";
-
 		$result = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysql_error());
 
 		if (mysqli_num_rows($result) > 0) {
