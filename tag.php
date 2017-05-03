@@ -26,7 +26,7 @@
 
 
 				$curTag = htmlentities($string, ENT_QUOTES, "UTF-8");
-				if (strlen($curTag)< 1) {
+				if (strlen($curTag)<= 1) {
 					$location = "http://" . $_SERVER['HTTP_HOST'] . "/index.php";
 					echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
 				}
@@ -34,7 +34,7 @@
 			?>
 		</h1>
 		<hr>
-		<a href="search.php">Search</a>
+		<a class="button is-primary" href="search.php">Search</a><br><br>
 		<br><br>
 	</center>
 	<?php

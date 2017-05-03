@@ -33,6 +33,7 @@
 				?>
 			</h1>
 			<hr>
+			<a class="button is-primary" href="search.php">Search</a><br><br>
 		</center>
 	</div>
 	<?php
