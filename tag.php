@@ -7,7 +7,6 @@
 	<center>
 		<h1 class="title">
 			<?php
-
 				$curTag = htmlentities($_SERVER['QUERY_STRING'], ENT_QUOTES, "UTF-8");
 				if (strlen($curTag)< 1) {
 					$location = "http://" . $_SERVER['HTTP_HOST'] . "/index.php";
