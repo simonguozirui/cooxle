@@ -7,7 +7,22 @@
 	<center>
 		<h1 class="title">
 			<?php
-				$curTag = htmlentities($_SERVER['QUERY_STRING'], ENT_QUOTES, "UTF-8");
+				// public function replace_query($string){
+				// 	str_replace("%23", "#", $string);
+				// 	str_replace("%24", "$", $string);
+				// 	str_replace("%25", "&", $string);
+				// 	str_replace("%26", "+", $string);
+				// 	str_replace("%2B", ".", $string);
+				// 	str_replace("%2C", "/", $string);
+				// 	str_replace("%2F", ":", $string);
+				// 	str_replace("%3B", ";", $string);
+				// 	str_replace("%3D", "=", $string);
+				// 	str_replace("%3F", "?", $string);
+				// 	str_replace("%40", "@", $string);
+				// }
+
+				$string = $_SERVER['QUERY_STRING'];
+				$curTag = htmlentities($string, ENT_QUOTES, "UTF-8");
 				if (strlen($curTag)< 1) {
 					$location = "http://" . $_SERVER['HTTP_HOST'] . "/index.php";
 					echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
