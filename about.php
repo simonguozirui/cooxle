@@ -21,6 +21,12 @@
 						 <li><a href="#privacy">Privacy</a></li>
 						 <li><a href="#info">User Information</a></li>
 					 </ul>
+					 <p class="menu-label">
+						 Help
+					</p>
+					<ul class="menu-list">
+						<li><a href="#post">Post issues</a></li>
+					</ul>
 					  <p class="menu-label">
 					    Developer Options
 					  </p>
