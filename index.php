@@ -56,13 +56,13 @@
 		// if the person looks up a tag
 		if ($searchTags != '') {
 			// redirect them to tag.php with the tag name as the query string
-			$location = "http://" . $_SERVER['HTTP_HOST'] . "/tag.php?".$searchTags;
+			$location = "http://" . $_SERVER['HTTP_HOST'] . "tag.php?".$searchTags;
 			echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
 		}
 		// if the person looks up a user
 		elseif ($searchUser != '') {
 			// redirect them to user.php with the username as the query string
-			$location = "http://" . $_SERVER['HTTP_HOST'] . "/user.php?".$searchUser;
+			$location = "http://" . $_SERVER['HTTP_HOST'] . "user.php?".$searchUser;
 			echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
 		}
 		// search symbols in from most to least recent
