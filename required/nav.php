@@ -5,7 +5,6 @@
             <a class="nav-item is-tab" href="index.php">
                 <img src="img/logo.png" alt="logo">
             </a>
-            <a class="nav-item is-tab" href="index.php">Feeds</a>
             <a class="nav-item is-tab" href="search.php">Search</a>
             <a class="nav-item is-tab" href="about.php" target="_blank">About</a>
         </div>

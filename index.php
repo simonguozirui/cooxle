@@ -85,10 +85,9 @@
     			$tagText = "";
     			// if there is a tag, create a button for it.
     			if ($tag != "") {
-    				$tagText = '<a href="tag.php?'.$tag.'"><span class="tag is-primary is-small">'.$tag.'</span></a>';
+    				$tagText = '<a href="tag.php?'.$tag.'"><span class="tag is-primary is-small">'.$tag.'</span></a><br>';
     			}
-    			// post html using css classes and string concatnation
-    			echo '<div class="column is-half is-offset-one-quarter"><div class="box"><article class="media">
+				?><div class="column is-half is-offset-one-quarter"><div class="box"><article class="media">
   						<figure class="media-left">
     						<p class="image is-64x64">
 						      <img src="http://bulma.io/images/placeholders/128x128.png">
@@ -97,23 +96,23 @@
 						<div class="media-content">
 						 	<div class="content">
 						      	<p>
-						        <strong><a href="user.php?'.$usr.'">'.$usr.'</a></strong> <small>ID: '.$id.'</small>
+						        <strong><a href="user.php?'.$usr.'"><?=$usr?></a></strong> <small>ID: <?=$id?></small>
 						        <br>
-						        '.$text.' <br>' . $tagText.'
+						       <?=$tagText?> <?=$text?>
 						      	</p>
 						    </div>
 						    <nav class="level is-mobile">
 						    	<div class="level-left">
 						        	<a class="level-item">
-						          		<span class="icon is-small"><i class="fa fa-reply"></i></span>
-						        	</a>
-						        	<a class="level-item">
-						        	  	<span class="icon is-small"><i class="fa fa-heart"></i></span>
+										<form action="<?=$_SERVER['PHP_SELF']?>">
+											<input type="submit" name="<?=$id?>" class="button is-primary is-small" value="Like" />
+										</form>
 						        	</a>
 						      	</div>
 						    </nav>
 						</div>
-					</article></div></div></div>';
+					</article></div></div></div>
+			<?php
     		}
 		    echo "</div></div>";
 		// if there are no posts
@@ -126,6 +125,11 @@
 
 		// free result set memory
 		mysqli_free_result($connection,$result);
+
+		// if (strpos($_SERVER['QUERY_STRING'], "=Like") !== false) {
+		// 	$id = int(str_replace($_SERVER['QUERY_STRING'], ""));
+
+		// }
 
 		// This is the part of the program that handles created posts \\
 
