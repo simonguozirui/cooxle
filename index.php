@@ -17,7 +17,6 @@
 		    	$arr = array_values($_SESSION['user']);
 				$clientname = $arr[1]; // assign username to variable clientname
 				$email = $arr[2]; // assing email to variable email
-				echo "Welcome " . $clientname; // Say hello to the user
 			?>
 		</h1>
 		<br>
@@ -26,10 +25,8 @@
 		<div class="column is-half is-offset-one-quarter">
 
 			<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-		    	<label class="label">Post tag: </label>
-		    	<div class="control"><input class="input" type="text" placeholder="&#x21AA; (not required)" name="tag"></div>
 
-		    	<label class="label">Post text:</label>
+
 		    	<div class="control">
 		    		<!-- <input class="input" type="text" placeholder="&#x21AA;" name="animal"> -->
 		    		<p class="control">
@@ -37,6 +34,8 @@
   					</p>
 		    	</div>
 		    	<br>
+		    	<div class="control"><input class="input" type="text" placeholder="&#x21AA; (not required)" name="tags"></div>
+					<br>
 		    	<input class="button is-primary" type="submit" name="submit">
 		    </form>
 		</div>
