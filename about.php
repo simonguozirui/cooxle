@@ -15,7 +15,7 @@
 						<li><a href="#team">Team</a></li>
 					  </ul>
 						<p class="menu-label">
-							Legal & Privacy
+							Legal &amp; Privacy
 					 </p>
 					 <ul class="menu-list">
 						 <li><a href="#privacy">Privacy</a></li>
