@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <html>
 	<!-- Use constant head file in required/  -->
 	<?php include_once("required/head.php") ?>
@@ -17,6 +18,7 @@
 		    	$arr = array_values($_SESSION['user']);
 				$clientname = $arr[1]; // assign username to variable clientname
 				$email = $arr[2]; // assing email to variable email
+				echo "Hello " . $clientname;
 			?>
 		</h1>
 		<br>
@@ -29,11 +31,13 @@
 
 		    	<div class="control">
 		    		<!-- <input class="input" type="text" placeholder="&#x21AA;" name="animal"> -->
+		    		<label class="label">Post Text</label>
 		    		<p class="control">
     					<textarea class="textarea" type="text" placeholder="&#x21AA; (maximum 255 characters)" name="text"></textarea>
   					</p>
 		    	</div>
 		    	<br>
+		    	<label class="label">Post Tag</label>
 		    	<div class="control"><input class="input" type="text" placeholder="&#x21AA; (not required)" name="tags"></div>
 					<br>
 		    	<input class="button is-primary" type="submit" name="submit">
@@ -61,7 +65,7 @@
 		// if the person looks up a user
 		elseif ($searchUser != '') {
 			// redirect them to user.php with the username as the query string
-			$location = "http://" . $_SERVER['HTTP_HOST'] . "user.php?".$searchUser;
+			$location = "http:/" . $_SERVER['HTTP_HOST'] . "user.php?".$searchUser;
 			echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
 		}
 		// search symbols in from most to least recent
