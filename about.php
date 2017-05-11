@@ -66,6 +66,7 @@
 							<h2 id="team">Team</h2>
 							<div class="container">
 							<!--Nick-->
+							<div class="columns">
 							<div class="column is-one-third">
 								<div class="card">
 									<div class="card-image">
@@ -112,6 +113,7 @@
 								</div>
 							</div>
 						</div>
+					</div>
 						</section>
 
 						<h1>Legal & Privacy</h1>

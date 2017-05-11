@@ -41,14 +41,15 @@
 										}
 										echo $clientname;
 									?>
-								</strong> <small>@johnsmith</small>
+								</strong>
 				      </h2>
 							<h4>
 								<?php
-								#WE NEED TO FIX THIS$num_rows = mysql_num_rows($users.);
 								echo "$num_rows Posts\n";
+								echo "|";
+								echo "$num_rows Followers\n";
 								?>
-								 | 6 Followers</h5>
+							</h4>
 							<p>BIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIO.</p>
 				    </div>
 				    <a class="button is-success is-outlined">Follow</a>
