@@ -1,5 +1,5 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+SET time_zone = "-05:00";
 
 --
 -- Database: `testdb`
@@ -15,7 +15,8 @@ CREATE TABLE `symbols` (
   `id` int(11) NOT NULL,
   `country` varchar(255) NOT NULL DEFAULT '',
   `animal` varchar(255) NOT NULL DEFAULT '',
-  `username` varchar(255) NOT NULL
+  `username` varchar(255) NOT NULL,
+  `time` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
