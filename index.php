@@ -85,6 +85,7 @@
     			$id = $row[0]; // get id from 1st array index
     			$text = $row[2]; // get post text from 3rd array index
     			$usr = $row[3]; // get username from 4th array index
+					$time = date("Y-m-d",$row[4]);
     			$tagText = "";
     			// if there is a tag, create a button for it.
     			if ($tag != "") {
@@ -99,7 +100,7 @@
 						<div class="media-content">
 						 	<div class="content">
 						      	<p>
-						        <strong><a href="user.php?<?=$usr?>"><?=$usr?></a></strong> <small>ID: <?=$id?></small>
+						        <strong><a href="user.php?<?=$usr?>"><?=$usr?></a></strong> <small>ID: <?=$id?></small> <small><?=$time?></small>
 						        <br>
 						       <?=$tagText?> <?=$text?>
 						      	</p>
@@ -140,12 +141,13 @@
 		$postTags = htmlspecialchars($_POST['tag']); // get the tag and assign it to variable postTags
 		$postTags = strtolower($postTags); // make the tag lowercase
 		$postTags = str_replace(" ", "_", $postTags); // replace spaces with underscores. (Snake case woohoo)
-    	$postText = htmlspecialchars($_POST['text']); // get the post text and assign it to variable postText
+    $postText = htmlspecialchars($_POST['text']); // get the post text and assign it to variable postText
+		$postTime = time();
 
 		// check to see if user has entered anything
 		if ($postText != "") {
 	 		// build SQL query
-			$query = "INSERT INTO symbols (country, animal, username) VALUES ('$postTags', '$postText', '$clientname')";
+			$query = "INSERT INTO symbols (country, animal, username, time) VALUES ('$postTags', '$postText', '$clientname', '$postTime')";
 			// run the query
      		$result = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysql_error());
 			// refresh the page to show new update
