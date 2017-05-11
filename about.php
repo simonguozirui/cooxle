@@ -84,12 +84,8 @@
 									  <div class="content">
 											I am a UCC student, sailor, rower, and hobby developer. I spend a lot of time on the water and I love making boats go fast. I've been programming for 2 years (as of 2017) and I've had a lot of fun learning different programming languages.
 											<br><br>
-<<<<<<< HEAD
 											<a href="http://obrien.tech" target="_blank" class="button is-info is-outlined">Website</a>
 											<a href="https://github.com/obrien66" target="_blank" class="button is-dark is-outlined">Github</a>
-=======
-											<a href="http://obrien.tech" target="_blank" class="button is-primary is-outlined">Website</a>
->>>>>>> origin/master
 										</div>
 									</div>
 								</div>
@@ -112,12 +108,8 @@
 									  <div class="content">
 											I am a 16-years-old high school student from Shanghai, China, currently studying in Toronto, Canada. I am passionate about Internet of Things, robotics, and innovation. Proficient at hardware engineering, embedded system design, and web front-end development.
 											<br><br>
-<<<<<<< HEAD
 											<a href="http://simonguo.tech" target="_blank" class="button is-info is-outlined">Website</a>
 											<a href="https://github.com/simonguozirui" target="_blank" class="button is-dark is-outlined">Github</a>
-=======
-											<a href="http://simonguo.tech" target="_blank" class="button is-primary is-outlined">Website</a>
->>>>>>> origin/master
 										</div>
 									</div>
 								</div>
