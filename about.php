@@ -84,8 +84,12 @@
 									  <div class="content">
 											I am a UCC student, sailor, rower, and hobby developer. I spend a lot of time on the water and I love making boats go fast. I've been programming for 2 years (as of 2017) and I've had a lot of fun learning different programming languages.
 											<br><br>
+<<<<<<< HEAD
 											<a href="http://obrien.tech" target="_blank" class="button is-info is-outlined">Website</a>
 											<a href="https://github.com/obrien66" target="_blank" class="button is-dark is-outlined">Github</a>
+=======
+											<a href="http://obrien.tech" target="_blank" class="button is-primary is-outlined">Website</a>
+>>>>>>> origin/master
 										</div>
 									</div>
 								</div>
@@ -108,8 +112,12 @@
 									  <div class="content">
 											I am a 16-years-old high school student from Shanghai, China, currently studying in Toronto, Canada. I am passionate about Internet of Things, robotics, and innovation. Proficient at hardware engineering, embedded system design, and web front-end development.
 											<br><br>
+<<<<<<< HEAD
 											<a href="http://simonguo.tech" target="_blank" class="button is-info is-outlined">Website</a>
 											<a href="https://github.com/simonguozirui" target="_blank" class="button is-dark is-outlined">Github</a>
+=======
+											<a href="http://simonguo.tech" target="_blank" class="button is-primary is-outlined">Website</a>
+>>>>>>> origin/master
 										</div>
 									</div>
 								</div>
@@ -126,7 +134,7 @@
 						<br>
 						<section>
 							<h2 id="info">User Information</h2>
-	  					<p>Cooxle/Simon Zirui Guo/Nicholas O’Brien won't record, transfer, or sell user information in the Cooxle database.</p>
+	  					<p>Cooxle and it's developers will not record, transfer, or sell user information in the Cooxle database.</p>
 						</section>
 
 						<h1>Developer Option</h1>
@@ -146,38 +154,7 @@
 							<h2 id="contribute">Contribute</h2>
 							<p>You can run Cooxle locally on your development environment. Use <a href="setup.sql" target="_blank">setup.sql</a> to create the database structure cooxle has or copy and execute the code below.</p>
 							<pre>
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-CREATE TABLE `symbols` (
-`id` int(11) NOT NULL,
-`country` varchar(255) NOT NULL DEFAULT '',
-`animal` varchar(255) NOT NULL DEFAULT '',
-`username` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-CREATE TABLE `users` (
-`id` int(11) NOT NULL,
-`username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-`password` char(64) COLLATE utf8_unicode_ci NOT NULL,
-`salt` char(16) COLLATE utf8_unicode_ci NOT NULL,
-`email` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-ALTER TABLE `symbols`
-ADD PRIMARY KEY (`id`);
-
-ALTER TABLE `users`
-ADD PRIMARY KEY (`id`),
-ADD UNIQUE KEY `username` (`username`),
-ADD UNIQUE KEY `email` (`email`);
-
-ALTER TABLE `symbols`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
-
-ALTER TABLE `users`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+<?php include_once("setup.sql") ?>
 							</pre>
 	  					<p>If you would like to run Cooxle locally, please download our project at our <a href="https://github.com/simonguozirui/cooxle" target="_blank">GitHub repository</a>.
 							<br />If you have any suggestions or suggestions about the project, please open an issue or submit a pull request on our <a href="https://github.com/simonguozirui/cooxle" target="_blank">GitHub repository</a>.
