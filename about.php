@@ -64,14 +64,54 @@
 						<br>
 						<section>
 							<h2 id="team">Team</h2>
-	  					<p>
-	  						The Cooxle team is composed of Nicholas O'Brien and Simon Guo. <br><br>
-	  						Nick: <br>
-	  						I am a UCC student, sailor, rower, and hobby developer. I spend a lot of time on the water and I love making boats go fast. I've been programming for 2 years (as of 2017) and I've had a lot of fun learning different programming languages.<br><br>
+							<div class="container">
+							<!--Nick-->
+							<div class="column is-one-third">
+								<div class="card">
+									<div class="card-image">
+									  <figure class="image is-1by1">
+									    <img src="img/nick.jpg" alt="Image">
+									  </figure>
+									</div>
+									<div class="card-content">
+									  <div class="media">
+									    <div class="media-content">
+									      <p class="title is-4">Nicholas O'Brien</p>
+									    </div>
+									  </div>
 
-	  						Simon:<br>
-	  						Sample text
-	  					</p>
+									  <div class="content">
+											I am a UCC student, sailor, rower, and hobby developer. I spend a lot of time on the water and I love making boats go fast. I've been programming for 2 years (as of 2017) and I've had a lot of fun learning different programming languages.
+											<br><br>
+											<a href="http://obrien.tech" target="_blank" class="button is-success is-outlined">Website</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--Simon-->
+							<div class="column is-one-third">
+								<div class="card">
+									<div class="card-image">
+									  <figure class="image is-1by1">
+									    <img src="img/simon.jpg" alt="Image">
+									  </figure>
+									</div>
+									<div class="card-content">
+									  <div class="media">
+									    <div class="media-content">
+									      <p class="title is-4">Simon Zirui Guo</p>
+									    </div>
+									  </div>
+
+									  <div class="content">
+											I am a 16-years-old high school student from Shanghai, China, currently studying in Toronto, Canada. I am passionate about Internet of Things, robotics, and innovation. Proficient at hardware engineering, embedded system design, and web front-end development.
+											<br><br>
+											<a href="http://simonguo.tech" target="_blank" class="button is-success is-outlined">Website</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 						</section>
 
 						<h1>Legal & Privacy</h1>
