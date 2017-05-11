@@ -42,7 +42,7 @@
 						<section>
 							<h2 id="about">About</h2>
 	  					<p>
-	  						Cooxle is a computer science project created by <a href="http://obrien.tech">Nicholas O'Brien</a> and <a href="http://simonguo.tech">Simon Guo</a> for their ICS4U computer science class. It is designed to work like twitter with easy-to-use styling and account systems. It is hosted on <a href="https://github.com/simonguozirui/cooxle">github</a> and under the MIT License.
+	  						Cooxle is a computer science project created by <a href="http://obrien.tech" target="_blank">Nicholas O'Brien</a> and <a href="http://simonguo.tech" target="_blank">Simon Guo</a> for their ICS4U computer science class. It is designed to work like twitter with easy-to-use styling and account systems. It is hosted on <a href="https://github.com/simonguozirui/cooxle">github</a> and under the MIT License.
 	  					</p>
 						</section>
 						<br>
@@ -84,7 +84,44 @@
 						<br>
 						<section>
 							<h2 id="contribute">Contribute</h2>
-	  					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
+							<p>You can run Cooxle locally on your development environment. Use <a href="setup.sql" target="_blank">setup.sql</a> to create the database structure cooxle has or copy and execute the code below.</p>
+							<pre>
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+CREATE TABLE `symbols` (
+`id` int(11) NOT NULL,
+`country` varchar(255) NOT NULL DEFAULT '',
+`animal` varchar(255) NOT NULL DEFAULT '',
+`username` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE `users` (
+`id` int(11) NOT NULL,
+`username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+`password` char(64) COLLATE utf8_unicode_ci NOT NULL,
+`salt` char(16) COLLATE utf8_unicode_ci NOT NULL,
+`email` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+ALTER TABLE `symbols`
+ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `users`
+ADD PRIMARY KEY (`id`),
+ADD UNIQUE KEY `username` (`username`),
+ADD UNIQUE KEY `email` (`email`);
+
+ALTER TABLE `symbols`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+
+ALTER TABLE `users`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+							</pre>
+	  					<p>If you would like to run Cooxle locally, please download our project at our <a href="https://github.com/simonguozirui/cooxle" target="_blank">GitHub repository</a>.
+							<br />If you have any suggestions or suggestions about the project, please open an issue or submit a pull request on our <a href="https://github.com/simonguozirui/cooxle" target="_blank">GitHub repository</a>.
+							<br />Visit our <a href="https://github.com/simonguozirui/cooxle/wiki" target="_blank" >Github Wiki</a> for more documentation on the project.</p>
 						</section>
 
 					</div>
