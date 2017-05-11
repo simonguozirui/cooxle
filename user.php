@@ -6,34 +6,59 @@
 	<?php require("required/security.php") ?>
 	<div class="post-container">
 		<center>
-			<h1 class="title">
-				<?php
+			<div class="column is-half">
+				<div class="box">
+					<article class="media">
+				  <figure class="media-left">
+				    <p class="image is-256x256">
+				      <img src="http://1.bp.blogspot.com/-LOuh5hhbMZo/UvCI9CNxmWI/AAAAAAAAC3w/CFVJARA9inM/s1600/south_park_icons_cartman_PICFISH.png">
+				    </p>
+				  </figure>
+				  <div class="media-content">
+				    <div class="content">
+				      <h2>
+				        <strong>
+									<?php
+										$string = $_SERVER['QUERY_STRING'];
+										$string = str_replace("%23", "#", $string);
+										$string = str_replace("%24", "$", $string);
+										$string = str_replace("%25", "&", $string);
+										$string = str_replace("%26", "+", $string);
+										$string = str_replace("%2B", ".", $string);
+										$string = str_replace("%2C", "/", $string);
+										$string = str_replace("%2F", ":", $string);
+										$string = str_replace("%3C", "<", $string);
+										$string = str_replace("%3E", ">", $string);
+										$string = str_replace("%3B", ";", $string);
+										$string = str_replace("%3D", "=", $string);
+										$string = str_replace("%3F", "?", $string);
+										$string = str_replace("%40", "@", $string);
 
-					$string = $_SERVER['QUERY_STRING'];
-					$string = str_replace("%23", "#", $string);
-					$string = str_replace("%24", "$", $string);
-					$string = str_replace("%25", "&", $string);
-					$string = str_replace("%26", "+", $string);
-					$string = str_replace("%2B", ".", $string);
-					$string = str_replace("%2C", "/", $string);
-					$string = str_replace("%2F", ":", $string);
-					$string = str_replace("%3C", "<", $string);
-					$string = str_replace("%3E", ">", $string);
-					$string = str_replace("%3B", ";", $string);
-					$string = str_replace("%3D", "=", $string);
-					$string = str_replace("%3F", "?", $string);
-					$string = str_replace("%40", "@", $string);
+										$clientname = htmlentities($string, ENT_QUOTES, 'UTF-8');
+										if (strlen($clientname)< 1) {
+											$location = "http://" . $_SERVER['HTTP_HOST'] . "/index.php";
+											echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
+										}
+										echo $clientname;
+									?>
+								</strong> <small>@johnsmith</small>
+				      </h2>
+							<h4>
+								<?php
+								#WE NEED TO FIX THIS$num_rows = mysql_num_rows($users.);
+								echo "$num_rows Posts\n";
+								?>
+								 | 6 Followers</h5>
+							<p>WE NEED TO ADD BIO. BIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIO.</p>
+				    </div>
+				    <a class="button is-success is-outlined">Follow</a>
+						<a class="button is-danger is-outlined">Report</a>
+				  </div>
+				</article>
 
-					$clientname = htmlentities($string, ENT_QUOTES, 'UTF-8');
-					if (strlen($clientname)< 1) {
-						$location = "http://" . $_SERVER['HTTP_HOST'] . "/index.php";
-						echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
-					}
-					echo "User: ". $clientname;
-
-				?>
-			</h1>
-			<br>
+			</div>
+		</div>
+		<br>
 		</center>
 	</div>
 	<?php
@@ -99,7 +124,6 @@
     		}
 		    echo "</div></div>";
 		} else {
-
     		// print status message
     		echo '<div class="columns is-mobile"><div class="column is-half is-offset-one-quarter"><div class="notification is-danger">No posts found by <b>'.$clientname.'</b> (or no users by the name of <b>'.$clientname.'</b>)</div></div></div>';
 		}

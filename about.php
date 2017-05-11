@@ -42,14 +42,23 @@
 						<section>
 							<h2 id="about">About</h2>
 	  					<p>
-	  						Cooxle is a computer science project created by <a href="http://obrien.tech" target="_blank">Nicholas O'Brien</a> and <a href="http://simonguo.tech" target="_blank">Simon Guo</a> for their ICS4U computer science class. It is designed to work like twitter with easy-to-use styling and account systems. It is hosted on <a href="https://github.com/simonguozirui/cooxle">github</a> and under the MIT License.
+	  						Cooxle is a twitter-like social media platform with easy-to-use posting and account systems.
+								<br />Developed by <a href="http://obrien.tech" target="_blank">Nicholas O'Brien</a> and <a href="http://simonguo.tech" target="_blank">Simon Guo</a> for their ICS4U computer science class.
+								<br />It is hosted on <a href="https://github.com/simonguozirui/cooxle">Github</a> and under <a href="#open-source">the MIT License</a>.
 	  					</p>
 						</section>
 						<br>
 						<section>
 							<h2 id="features">Features</h2>
-	  					<p>
-	  						As said previously, Cooxle is supposed to work like twitter. It has account and posting systems in place to be used as a social media. To post, simply go to the home page and fill in the textboxes. To add a tag, enter your desired tag in the first textbox. Tags are not necessary, but they allow for users to find your post more easily. There is also a search feature. Users can search for posts by other users or for tags.
+							<h4>Account System</h4>
+							<p>Cooxle let every user to create their user profile which others could view and follow. It includes users' picture, name, number of posts, number of followers, and posts posted by the user.</p>
+							<h4>Posting</h4>
+							<p>Cooxle allow users to post messages less than 140 characters. To post, simply go to the home page and fill in the textboxes. To add a tag, enter your desired tag in the tag box. Tags are not necessary, but they allow for users to find your post more easily.
+							<br />You can view other people's posts in the feed page, and you can like others' posts.</p>
+							<h4>Follower System</h4>
+							<p>You can follow other users and read post feeds from them.</p>
+							<h4>Search System</h4>
+	  					<p>You can search for posts by other users or by tags in the search page.</p>
 	  					</p>
 						</section>
 						<br>
@@ -58,7 +67,7 @@
 	  					<p>
 	  						The Cooxle team is composed of Nicholas O'Brien and Simon Guo. <br><br>
 	  						Nick: <br>
-	  						I am a UCC student, sailor, rower, and hobby developer. I spend a lot of time on the water and I love making boats go fast. I've been programming for 2 years (as of 2017) and I've had a lot of fun learning different programming languages. <br><br>
+	  						I am a UCC student, sailor, rower, and hobby developer. I spend a lot of time on the water and I love making boats go fast. I've been programming for 2 years (as of 2017) and I've had a lot of fun learning different programming languages.<br><br>
 
 	  						Simon:<br>
 	  						Sample text
@@ -79,13 +88,13 @@
 						<h1>Developer Option</h1>
 						<section>
 							<h2 id="open-source">Open-Source</h2>
-	  					<p>Licensed under the MIT license. Copyright 2017 Cooxle
+	  					<p>Licensed under the MIT license. Copyright (c) 2017 Cooxle
 								<br />Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 								<br>
 								<br />The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 								<br />THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 								<br>
-								<br />If you have any questions or concerns, please feel free to contact <a href="mailto:simonguozirui@gmail.com">Simon Zirui Guo</a> or <a href="mailto:nicholas.obrien@ucc.on.ca">Nicholas O’Brien</a>.							
+								<br />If you have any questions or concerns, please feel free to contact <a href="mailto:simonguozirui@gmail.com">Simon Zirui Guo</a> or <a href="mailto:nicholas.obrien@ucc.on.ca">Nicholas O’Brien</a>.
 						</p>
 						</section>
 						<br>
