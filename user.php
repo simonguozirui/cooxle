@@ -52,7 +52,7 @@
 							<p>WE NEED TO ADD BIO. BIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIO.</p>
 				    </div>
 				    <a class="button is-success is-outlined">Follow</a>
-						<a class="button is-danger is-outlined">Report</a>
+						<a href="mailto:simonguozirui@gmail.com;nicholas.obrien@ucc.on.ca" class="button is-danger is-outlined">Report</a>
 				  </div>
 				</article>
 
