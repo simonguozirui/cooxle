@@ -36,7 +36,7 @@
 					  </ul>
 					</aside>
 				</div>
-				<div class="column">
+				<div class="column is-10">
 					<div class="content">
 						<h1>General</h1>
 						<section>
@@ -117,12 +117,12 @@
 						<h1>Legal & Privacy</h1>
 						<section>
 							<h2 id="privacy">Privacy</h2>
-	  					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
+	  					<p>We respect users' privacy and we protect our database and platform from cross site scripting. The database is controlled by Simon Zirui Guo and Nicholas O’Brien.</p>
 						</section>
 						<br>
 						<section>
 							<h2 id="info">User Information</h2>
-	  					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
+	  					<p>Cooxle/Simon Zirui Guo/Nicholas O’Brien won't record, transfer, or sell user information in the Cooxle database.</p>
 						</section>
 
 						<h1>Developer Option</h1>
