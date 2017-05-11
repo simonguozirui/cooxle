@@ -49,7 +49,7 @@
 								echo "$num_rows Posts\n";
 								?>
 								 | 6 Followers</h5>
-							<p>WE NEED TO ADD BIO. BIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIO.</p>
+							<p>BIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIO.</p>
 				    </div>
 				    <a class="button is-success is-outlined">Follow</a>
 						<a href="mailto:simonguozirui@gmail.com;nicholas.obrien@ucc.on.ca" class="button is-danger is-outlined">Report</a>
