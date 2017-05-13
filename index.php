@@ -85,7 +85,9 @@
     			$id = $row[0]; // get id from 1st array index
     			$text = $row[2]; // get post text from 3rd array index
     			$usr = $row[3]; // get username from 4th array index
-					$time = date("Y-m-d h:i:s",$row[4]);
+					$fixed_hour = date("h",$row[4]) + 6;
+					$date = date("Y-m-d",$row[4]);
+					$min = date("i:s",$row[4]);
     			$tagText = "";
     			// if there is a tag, create a button for it.
     			if ($tag != "") {
@@ -100,7 +102,7 @@
 						<div class="media-content">
 						 	<div class="content">
 						      	<p>
-						        <strong><a href="user.php?<?=$usr?>"><?=$usr?></a></strong> <small>ID: <?=$id?></small> <small><?=$time?></small>
+						        <strong><a href="user.php?<?=$usr?>"><?=$usr?></a></strong> <small>ID: <?=$id?></small> <small><?=$date?> <?=$fixed_hour?>:<?=$min?></small>
 						        <br>
 						       <?=$tagText?> <?=$text?>
 						      	</p>
