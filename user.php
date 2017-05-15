@@ -8,15 +8,10 @@
 		<center>
 			<div class="column is-half">
 				<div class="box">
-					<article class="media">
-				  <figure class="media-left">
 				    <p class="image is-256x256">
-				      <img src="http://1.bp.blogspot.com/-LOuh5hhbMZo/UvCI9CNxmWI/AAAAAAAAC3w/CFVJARA9inM/s1600/south_park_icons_cartman_PICFISH.png">
+				      <img src="img/user.png">
 				    </p>
 				  </figure>
-				  <div class="media-content">
-				    <div class="content">
-				      <h2>
 				        <strong>
 									<?php
 										$string = $_SERVER['QUERY_STRING'];
@@ -39,20 +34,32 @@
 											$location = "http://" . $_SERVER['HTTP_HOST'] . "/index.php";
 											echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
 										}
-										echo $clientname;
+										$conn = mysqli_connect($host, $username, $password) or die ("Unable to connect!");
+										$countQuery = "SELECT COUNT(`username`) FROM symbols WHERE `username` = '$clientname'";
+
+										$count = mysqli_query($conn,$countQuery); //or die ("Error in query: $countQuery. ".mysql_error());
+
+										if (mysqli_num_rows($result) > 0) {
+											$amount = $count;
+										}
+										else {
+											$amount = "Error in SQL";
+										}
+										$bio = "Lorem ipsum bio text";
 									?>
-								</strong>
-				      </h2>
-							<h4>
+						</strong>
+						<h2 class="title is-2"><?= $clientname?></h2>
+							<h4 title="title is-3">
+
 								<?php
-								echo "$num_rows Posts\n";
-								echo "|";
-								echo "$num_rows Followers\n";
+								echo "$amount Posts\n";
+								// echo "|";
+								// echo "$num_rows Followers\n";
 								?>
 							</h4>
-							<p>BIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIOBIO.</p>
-				    </div>
-				    <a class="button is-success is-outlined">Follow</a>
+							<p><?= $bio?></p>
+							<hr>
+				    <!-- <a class="button is-success is-outlined">Follow</a> -->
 						<a href="mailto:simonguozirui@gmail.com;nicholas.obrien@ucc.on.ca" class="button is-danger is-outlined">Report</a>
 				  </div>
 				</article>
@@ -93,35 +100,34 @@
     			$tagText = "";
     			// if there is a tag, create a button for it.
     			if ($tag != "") {
-    				$tagText = '<a href="tag.php?'.$tag.'"><span class="tag is-primary is-small">'.$tag.'</span></a>';
+    				$tagText = '<a href="tag.php?'.$tag.'"><span class="tag is-primary is-small">'.$tag.'</span></a><br>';
     			}
-    			// post html using css classes and string concatnation
-    			echo '<div class="column is-half is-offset-one-quarter"><div class="box"><article class="media">
+				?><div class="column is-half is-offset-one-quarter"><div class="box"><article class="media">
   						<figure class="media-left">
     						<p class="image is-64x64">
-						      <img src="http://bulma.io/images/placeholders/128x128.png">
+						      <img src="img/user.png">
 						    </p>
 						</figure>
 						<div class="media-content">
 						 	<div class="content">
 						      	<p>
-						        <strong><a href="user.php?'.$usr.'">'.$usr.'</a></strong> <small>ID: '.$id.'</small>
+						        <strong><a href="user.php?<?=$usr?>"><?=$usr?></a></strong> <small>ID: <?=$id?></small>
 						        <br>
-						        '.$text.' <br>' . $tagText.'
+						       <?=$tagText?> <?=$text?>
 						      	</p>
 						    </div>
 						    <nav class="level is-mobile">
 						    	<div class="level-left">
 						        	<a class="level-item">
-						          		<span class="icon is-small"><i class="fa fa-reply"></i></span>
-						        	</a>
-						        	<a class="level-item">
-						        	  	<span class="icon is-small"><i class="fa fa-heart"></i></span>
+										<form action="<?=$_SERVER['PHP_SELF']?>">
+											<input type="submit" name="<?=$id?>" class="button is-primary is-small" value="Like" />
+										</form>
 						        	</a>
 						      	</div>
 						    </nav>
 						</div>
-					</article></div></div></div>';
+					</article></div></div></div>
+			<?php
     		}
 		    echo "</div></div>";
 		} else {
