@@ -38,7 +38,7 @@
 		    	</div>
 		    	<br>
 		    	<label class="label">Post Tag</label>
-		    	<div class="control"><input class="input" type="text" placeholder="&#x21AA; (not required)" name="tags"></div>
+		    	<div class="control"><input class="input" type="text" placeholder="&#x21AA; (not required)" name="tag"></div>
 					<br>
 		    	<input class="button is-primary" type="submit" name="submit">
 		    </form>
@@ -144,7 +144,7 @@
 		$postTags = htmlspecialchars($_POST['tag']); // get the tag and assign it to variable postTags
 		$postTags = strtolower($postTags); // make the tag lowercase
 		$postTags = str_replace(" ", "_", $postTags); // replace spaces with underscores. (Snake case woohoo)
-    $postText = htmlspecialchars($_POST['text']); // get the post text and assign it to variable postText
+    	$postText = htmlspecialchars($_POST['text']); // get the post text and assign it to variable postText
 		$postTime = time();
 
 		// check to see if user has entered anything
