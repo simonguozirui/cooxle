@@ -38,7 +38,7 @@
 		    	</div>
 		    	<br>
 		    	<label class="label">Post Tag</label>
-		    	<div class="control"><input class="input" type="text" placeholder="&#x21AA; (not required)" name="tag"></div>
+		    	<div class="control"><input class="input" type="text" placeholder="&#x21AA; (not required)" name="tags"></div>
 					<br>
 		    	<input class="button is-primary" type="submit" name="submit">
 		    </form>
@@ -90,6 +90,8 @@
 					$min = date("i:s",$row[4]);
     			$tagText = "";
 					$likes = $row[5];
+					$sql = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysqli_error());
+
     			// if there is a tag, create a button for it.
     			if ($tag != "") {
     				$tagText = '<a href="tag.php?'.$tag.'"><span class="tag is-primary is-small">'.$tag.'</span></a><br>';
@@ -108,13 +110,21 @@
 						       <?=$tagText?><?=$text?>
 						      	</p>
 						    </div>
+								<?php
+									if($_POST['like']) {
+										$query = "UPDATE symbols set `likes` = `likes`+1 where `id` = $id";
+										//echo $query;
+										$sql = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysqli_error());
+									}
+								?>
 						    <nav class="level is-mobile">
 						    	<div class="level-left">
 						        	<a class="level-item">
-												<form action="<?=$_SERVER['PHP_SELF']?>">
-													<input type="submit" name="<?=$id?>" class="button is-primary is-small" value="Like <?=$likes?>" />
+												<form action="index.php" method="POST">
+													<input type = "submit" class="button is-primary is-small" value="Like <?=$likes?>"  name='like'/>
 												</form>
 						        	</a>
+
 						      	</div>
 						    </nav>
 						</div>
@@ -144,7 +154,7 @@
 		$postTags = htmlspecialchars($_POST['tag']); // get the tag and assign it to variable postTags
 		$postTags = strtolower($postTags); // make the tag lowercase
 		$postTags = str_replace(" ", "_", $postTags); // replace spaces with underscores. (Snake case woohoo)
-    	$postText = htmlspecialchars($_POST['text']); // get the post text and assign it to variable postText
+    $postText = htmlspecialchars($_POST['text']); // get the post text and assign it to variable postText
 		$postTime = time();
 
 		// check to see if user has entered anything
