@@ -112,7 +112,7 @@
 						    	<div class="level-left">
 						        	<a class="level-item">
 												<form action="<?=$_SERVER['PHP_SELF']?>">
-													<input type="submit" name="<?=$id?>" class="button is-primary is-small" value="Like <?=$likes?> " />
+													<input type="submit" name="<?=$id?>" class="button is-primary is-small" value="Like <?=$likes?>" />
 												</form>
 						        	</a>
 						      	</div>
