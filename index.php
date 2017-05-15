@@ -89,6 +89,7 @@
 					$date = date("Y-m-d",$row[4]);
 					$min = date("i:s",$row[4]);
     			$tagText = "";
+					$likes = $row[5];
     			// if there is a tag, create a button for it.
     			if ($tag != "") {
     				$tagText = '<a href="tag.php?'.$tag.'"><span class="tag is-primary is-small">'.$tag.'</span></a><br>';
@@ -104,15 +105,15 @@
 						      	<p>
 						        <strong><a href="user.php?<?=$usr?>"><?=$usr?></a></strong> <small>ID: <?=$id?></small> <small><?=$date?> <?=$fixed_hour?>:<?=$min?></small>
 						        <br>
-						       <?=$tagText?> <?=$text?>
+						       <?=$tagText?><?=$text?>
 						      	</p>
 						    </div>
 						    <nav class="level is-mobile">
 						    	<div class="level-left">
 						        	<a class="level-item">
-										<form action="<?=$_SERVER['PHP_SELF']?>">
-											<input type="submit" name="<?=$id?>" class="button is-primary is-small" value="Like" />
-										</form>
+												<form action="<?=$_SERVER['PHP_SELF']?>">
+													<input type="submit" name="<?=$id?>" class="button is-primary is-small" value="Like <?=$likes?> " />
+												</form>
 						        	</a>
 						      	</div>
 						    </nav>
