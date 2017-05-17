@@ -8,6 +8,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `likes`
+--
+
+CREATE TABLE `likes` (
+  `userid` int(11) NOT NULL,
+  `postid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `symbols`
 --
 
@@ -16,8 +27,7 @@ CREATE TABLE `symbols` (
   `country` varchar(255) NOT NULL DEFAULT '',
   `animal` varchar(255) NOT NULL DEFAULT '',
   `username` varchar(255) NOT NULL,
-  `time` varchar(255) NOT NULL,
-  `likes` int(11) NOT NULL
+  `time` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
