@@ -36,7 +36,10 @@
         // http://us.php.net/manual/en/filter.filters.php
         if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
         {
-            die("Invalid E-Mail Address");
+          $message = "Invalid E-Mail Address.";
+          die("<center><div class='notification is-danger'>
+            $message <br> <a href='register.php'>Back</a>
+          </div></center>");
         }
 
         // We will use this SQL query to see whether the username entered by the
@@ -117,7 +120,10 @@
 
         if($row)
         {
-            die("This email address is already registered");
+            $message = "This email address is already registered";
+            die("<center><div class='notification is-danger'>
+              $message <br> <a href='register.php'>Back</a>
+            </div></center>");
         }
 
         // An INSERT query is used to add new rows to a database table.
