@@ -1,4 +1,5 @@
 <?php include_once("required/head.php") ?>
+<!-- Use constant head file -->
 <?php
     session_start();
     // First we execute our common code to connection to the database and start the session

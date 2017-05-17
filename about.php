@@ -1,6 +1,8 @@
 <html>
+	<!-- Include the constant head file. -->
 	<?php include_once("required/head.php") ?>
 	<body>
+	<!-- Include the constant nav file. -->
 	<?php include_once("required/nav.php") ?>
 		<div class="container">
 			<div class="columns">
@@ -146,6 +148,7 @@
 							<h2 id="contribute">Contribute</h2>
 							<p>You can run Cooxle locally on your development environment. Use <a href="setup.sql" target="_blank">setup.sql</a> to create the database structure cooxle has or copy and execute the code below.</p>
 							<pre>
+<!-- Include the sql setup script. -->
 <?php include_once("setup.sql") ?>
 							</pre>
 	  					<p>If you would like to run Cooxle locally, please download our project at our <a href="https://github.com/simonguozirui/cooxle" target="_blank">GitHub repository</a>.

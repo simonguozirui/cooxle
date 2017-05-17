@@ -1,69 +1,45 @@
 <html>
+	<!-- Include a constant head file -->
 	<?php include_once("required/head.php") ?>
 	<body>
+	<!-- Include common.php -->
 	<?php require("required/common.php"); ?>
+	<!-- Include a constant nav file -->
 	<?php include_once("required/nav.php") ?>
+	<!-- Inlcude our security file. -->
 	<?php require("required/security.php") ?>
 	<div class="post-container">
 		<center>
 			<div class="column is-half">
 				<div class="box">
-				    <p class="image is-256x256">
-				      <img src="img/user.png">
-				    </p>
-				  </figure>
-				        <strong>
-									<?php
-										$string = $_SERVER['QUERY_STRING'];
-										$string = str_replace("%23", "#", $string);
-										$string = str_replace("%24", "$", $string);
-										$string = str_replace("%25", "&", $string);
-										$string = str_replace("%26", "+", $string);
-										$string = str_replace("%2B", ".", $string);
-										$string = str_replace("%2C", "/", $string);
-										$string = str_replace("%2F", ":", $string);
-										$string = str_replace("%3C", "<", $string);
-										$string = str_replace("%3E", ">", $string);
-										$string = str_replace("%3B", ";", $string);
-										$string = str_replace("%3D", "=", $string);
-										$string = str_replace("%3F", "?", $string);
-										$string = str_replace("%40", "@", $string);
+					<?php
+							// Take the query string and sanitize it.
+							$string = $_SERVER['QUERY_STRING'];
+							$string = str_replace("%23", "#", $string);
+							$string = str_replace("%24", "$", $string);
+							$string = str_replace("%25", "&", $string);
+							$string = str_replace("%26", "+", $string);
+							$string = str_replace("%2B", ".", $string);
+							$string = str_replace("%2C", "/", $string);
+							$string = str_replace("%2F", ":", $string);
+							$string = str_replace("%3C", "<", $string);
+							$string = str_replace("%3E", ">", $string);
+							$string = str_replace("%3B", ";", $string);
+							$string = str_replace("%3D", "=", $string);
+							$string = str_replace("%3F", "?", $string);
+							$string = str_replace("%40", "@", $string);
 
-										$clientname = htmlentities($string, ENT_QUOTES, 'UTF-8');
-										if (strlen($clientname)< 1) {
-											$location = "http://" . $_SERVER['HTTP_HOST'] . "/index.php";
-											echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
-										}
-										$conn = mysqli_connect($host, $username, $password) or die ("Unable to connect!");
-										$countQuery = "SELECT COUNT(`username`) FROM symbols WHERE `username` = '$clientname'";
-
-										$count = mysqli_query($conn,$countQuery); //or die ("Error in query: $countQuery. ".mysql_error());
-
-										if (mysqli_num_rows($result) > 0) {
-											$amount = $count;
-										}
-										else {
-											$amount = "Error in SQL";
-										}
-										$bio = "Lorem ipsum bio text";
-									?>
-						</strong>
-						<h2 class="title is-2"><?= $clientname?></h2>
-							<h4 title="title is-3">
-
-								<?php
-								echo "$amount Posts\n";
-								// echo "|";
-								// echo "$num_rows Followers\n";
-								?>
-							</h4>
-							<p><?= $bio?></p>
-							<hr>
-				    <!-- <a class="button is-success is-outlined">Follow</a> -->
-						<a href="mailto:simonguozirui@gmail.com;nicholas.obrien@ucc.on.ca" class="button is-danger is-outlined">Report</a>
-				  </div>
-				</article>
-
+							// Protect from XSS attacks
+							$clientname = htmlentities($string, ENT_QUOTES, 'UTF-8');
+							// If there is no query string, redirect to index.php
+							if (strlen($clientname)< 1) {
+								$location = "http://" . $_SERVER['HTTP_HOST'] . "/index.php";
+								echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
+							}
+						?>
+						<h1 class="title is-1"><?=$clientname?></h1>
+						<h3 class="subtitle is-4">Posts by user</h3>
+					</div>
 			</div>
 		</div>
 		<br>
@@ -131,11 +107,11 @@
     		}
 		    echo "</div></div>";
 		} else {
-    		// print status message
+    		// print status message if there are no posts
     		echo '<div class="columns is-mobile"><div class="column is-half is-offset-one-quarter"><div class="notification is-danger">No posts found by <b>'.$clientname.'</b> (or no users by the name of <b>'.$clientname.'</b>)</div></div></div>';
 		}
 
-		// free result set memory
+		// free up memory from sql data.
 		mysqli_free_result($connection,$result);
 		mysqli_close($connection);
 		?>
