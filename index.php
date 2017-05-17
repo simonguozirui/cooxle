@@ -115,11 +115,11 @@
 										$like_query = "SELECT postid, userid FROM likes where postid = $id and userid = $clientid";
 										$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysqli_error());
 										if (mysqli_num_rows($like_result) > 0) {
-											echo "yes";
+											echo "you liked it before";
 											$like_query = "DELETE FROM likes WHERE postid = $id and userid = $clientid";
 											$result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysql_error());
 										}else{
-											echo "no";
+											echo "you just liked it";
 											$like_query = "INSERT INTO likes(userid, postid) VALUES ($clientid,$id)";
 											$result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysql_error());
 										}
@@ -129,7 +129,7 @@
 						    	<div class="level-left">
 						        	<a class="level-item">
 												<form action="index.php" method="POST">
-													<input type = "submit" class="button is-primary is-small" value="Like <?=$likes?>"  name='like'/>
+													<input type = "submit" class="button is-primary is-small" value="Like"  name='like'/>
 												</form>
 						        	</a>
 
