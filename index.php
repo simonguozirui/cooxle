@@ -16,6 +16,7 @@
 			<?php
 				// get array values from login
 		    	$arr = array_values($_SESSION['user']);
+				$clientid = $arr[0];
 				$clientname = $arr[1]; // assign username to variable clientname
 				$email = $arr[2]; // assing email to variable email
 				echo "Hello " . $clientname;
@@ -89,8 +90,7 @@
 					$date = date("Y-m-d",$row[4]);
 					$min = date("i:s",$row[4]);
     			$tagText = "";
-					$likes = $row[5];
-					$sql = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysqli_error());
+					//$sql = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysqli_error());
 
     			// if there is a tag, create a button for it.
     			if ($tag != "") {
@@ -112,9 +112,17 @@
 						    </div>
 								<?php
 									if($_POST['like']) {
-										$query = "UPDATE symbols set `likes` = `likes`+1 where `id` = $id";
-										//echo $query;
-										$sql = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysqli_error());
+										$like_query = "SELECT postid, userid FROM likes where postid = $id and userid = $clientid";
+										$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysqli_error());
+										if (mysqli_num_rows($like_result) > 0) {
+											echo "yes";
+											$like_query = "DELETE FROM likes WHERE postid = $id and userid = $clientid";
+											$result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysql_error());
+										}else{
+											echo "no";
+											$like_query = "INSERT INTO likes(userid, postid) VALUES ($clientid,$id)";
+											$result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysql_error());
+										}
 									}
 								?>
 						    <nav class="level is-mobile">
