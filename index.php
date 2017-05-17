@@ -135,7 +135,10 @@
 						    	<div class="level-left">
 						        	<a class="level-item">
 												<form action="index.php" method="POST">
-													<input type = "submit" class="button is-primary is-small" value="<?=$id?>" name="like"/>
+													<button type="submit" class="fabutton" value="<?=$id?>" name="like">
+													   <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+													</button>
+													<!-- <input type = "submit" class="button is-primary is-small" value="<?=$id?>" name="like"/> -->
 												</form>
 						        	</a>
 											<a class="level-item">
