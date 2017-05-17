@@ -56,7 +56,7 @@
 							<p>Cooxle let every user to create their user profile which others could view and follow. It includes users' picture, name, number of posts, number of followers, and posts posted by the user.</p>
 							<h4>Posting</h4>
 							<p>Cooxle allow users to post messages less than 140 characters. To post, simply go to the home page and fill in the textboxes. To add a tag, enter your desired tag in the tag box. Tags are not necessary, but they allow for users to find your post more easily.
-							<br />You can view other people's posts in the feed page, and you can like others' posts.</p>
+							<br />You can view other people's posts in the feed page, and you can like or comment on others' posts.</p>
 							<h4>Follower System</h4>
 							<p>You can follow other users and read post feeds from them.</p>
 							<h4>Search System</h4>
@@ -134,14 +134,11 @@
 						<h1>Developer Option</h1>
 						<section>
 							<h2 id="open-source">Open-Source</h2>
-	  					<p>Licensed under the MIT license. Copyright (c) 2017 Cooxle
-								<br />Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-								<br>
-								<br />The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-								<br />THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-								<br>
-								<br />If you have any questions or concerns, please feel free to contact <a href="mailto:simonguozirui@gmail.com">Simon Zirui Guo</a> or <a href="mailto:nicholas.obrien@ucc.on.ca">Nicholas O’Brien</a>.
-						</p>
+							<pre>
+<!-- Include the License. -->
+<?php include_once("LICENSE") ?>
+							</pre>
+	  					<p>If you have any questions or concerns, please feel free to contact <a href="mailto:simonguozirui@gmail.com">Simon Zirui Guo</a> or <a href="mailto:nicholas.obrien@ucc.on.ca">Nicholas O’Brien</a>.</p>
 						</section>
 						<br>
 						<section>
