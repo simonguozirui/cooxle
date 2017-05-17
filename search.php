@@ -7,6 +7,7 @@
 	<?php
 		require("required/common.php");
 		include_once("required/nav.php");
+		// Use security file
 		require("required/security.php");
 	?>
 	<div class="columns">
@@ -31,7 +32,7 @@
 	</div>
 
 	<?php
-
+		// Save the POST requests.
 		$searchTags = $_POST["tag-lookup"];
 		$searchUser = $_POST["user-lookup"];
 

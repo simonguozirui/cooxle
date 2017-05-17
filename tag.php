@@ -8,7 +8,7 @@
 	<center>
 		<h1 class="title">
 			<?php
-
+				// Take the query string from search.php and sanitize it.
 
 				$string = $_SERVER['QUERY_STRING'];
 				$string = str_replace("%23", "#", $string);
@@ -27,10 +27,13 @@
 
 
 				$curTag = htmlentities($string, ENT_QUOTES, "UTF-8");
+				// Protection from XSS attacks and inbedded HTML.
 				if (strlen($curTag)<= 1) {
+					// If there is no query string, redirect to index.php
 					$location = "http://" . $_SERVER['HTTP_HOST'] . "/index.php";
 					echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
 				}
+				// Otherwise print the title
 				echo '<span class="tag is-primary is-large">'.$curTag.'</span>';
 			?>
 		</h1>
