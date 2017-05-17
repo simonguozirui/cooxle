@@ -110,39 +110,39 @@
 						       <?=$tagText?><?=$text?>
 						      	</p>
 						    </div>
-								<?php
-									if($_POST['like']) {
-										//$likeid = $_GET['value'];
-										//echo $likeid;
 
-										$like_query = "SELECT postid, userid FROM likes where postid = $id and userid = $clientid";
-										$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysqli_error());
-										$like_count = "SELECT count(userid) FROM likes where postid = $id";
-										$like_count_result = mysqli_query($connection,$like_count) or die ("Error in query: $like_count. ".mysqli_error());
-										$likes_number = mysqli_fetch_row($like_count_result);
-										if (mysqli_num_rows($like_result) > 0) {
-											echo "you liked it before";
-											$like_query = "DELETE FROM likes WHERE postid = $id and userid = $clientid";
-											$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysql_error());
-										}else{
-											echo "you just liked it";
-											$like_query = "INSERT INTO likes(userid, postid) VALUES ($clientid,$id)";
-											$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysql_error());
-										}
-									}
-								?>
 						    <nav class="level is-mobile">
 						    	<div class="level-left">
 						        	<a class="level-item">
 												<form action="index.php" method="POST">
 													<button type="submit" class="fabutton" value="<?=$id?>" name="like">
-													   <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+														<?php
+															if($_POST['like']) {
+																//$likeid = $_GET['value'];
+																//echo $likeid;
+
+																$like_query = "SELECT postid, userid FROM likes where postid = $id and userid = $clientid";
+																$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysqli_error());
+																$like_count = "SELECT count(userid) FROM likes where postid = $id";
+																$like_count_result = mysqli_query($connection,$like_count) or die ("Error in query: $like_count. ".mysqli_error());
+																$likes_number = mysqli_fetch_row($like_count_result);
+																if (mysqli_num_rows($like_result) > 0) {
+																	$like_query = "DELETE FROM likes WHERE postid = $id and userid = $clientid";
+																	$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysql_error());
+																	echo '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
+																}else{
+																	$like_query = "INSERT INTO likes(userid, postid) VALUES ($clientid,$id)";
+																	$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysql_error());
+																	echo '<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>';
+																}
+															}
+														?>
 													</button>
 													<!-- <input type = "submit" class="button is-primary is-small" value="<?=$id?>" name="like"/> -->
 												</form>
 						        	</a>
 											<a class="level-item">
-												<?=$likes_number[0]?>
+												<p><?=$likes_number[0]?></p>
 											</a>
 
 						      	</div>
