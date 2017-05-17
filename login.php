@@ -140,7 +140,7 @@
         </form>
         <center>
             <p>Don't have an account? <a href="register.php">Sign Up</a></p>
-            <p><a href="about.php" target="_blank">Learn about Cooxle</a></p>
+            <p>Never used Cooxle?<a href="about.php" target="_blank">Learn More</a></p>
         </center>
         </div>
     </div>
