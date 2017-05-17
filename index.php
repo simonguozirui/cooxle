@@ -114,19 +114,20 @@
 									if($_POST['like']) {
 										//$likeid = $_GET['value'];
 										//echo $likeid;
+
 										$like_query = "SELECT postid, userid FROM likes where postid = $id and userid = $clientid";
 										$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysqli_error());
-										$like_count = "SELECT userid FROM likes where postid = $id";
+										$like_count = "SELECT count(userid) FROM likes where postid = $id";
 										$like_count_result = mysqli_query($connection,$like_count) or die ("Error in query: $like_count. ".mysqli_error());
-										$like_number = count($like_count_result);
+										$likes_number = mysqli_fetch_row($like_count_result);
 										if (mysqli_num_rows($like_result) > 0) {
 											echo "you liked it before";
 											$like_query = "DELETE FROM likes WHERE postid = $id and userid = $clientid";
-											$result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysql_error());
+											$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysql_error());
 										}else{
 											echo "you just liked it";
 											$like_query = "INSERT INTO likes(userid, postid) VALUES ($clientid,$id)";
-											$result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysql_error());
+											$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysql_error());
 										}
 									}
 								?>
@@ -138,7 +139,7 @@
 												</form>
 						        	</a>
 											<a class="level-item">
-												<?=$like_number?>
+												<?=$likes_number[0]?>
 											</a>
 
 						      	</div>
