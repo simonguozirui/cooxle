@@ -118,33 +118,54 @@
 													<button type="submit" style="background: none; border:none; padding:0;" value="<?=$id?>" name="like">
 														<?php
 															if($_POST['like']) {
-																//$likeid = $_GET['value'];
-																//echo $likeid;
-
 																$like_query = "SELECT postid, userid FROM likes where postid = $id and userid = $clientid";
 																$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysqli_error());
 																$like_count = "SELECT count(userid) FROM likes where postid = $id";
 																$like_count_result = mysqli_query($connection,$like_count) or die ("Error in query: $like_count. ".mysqli_error());
 																$likes_number = mysqli_fetch_row($like_count_result);
 																if (mysqli_num_rows($like_result) > 0) {
-																	$like_query = "DELETE FROM likes WHERE postid = $id and userid = $clientid";
-																	$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysql_error());
+																	$like_delete_query = "DELETE FROM likes WHERE postid = $id and userid = $clientid";
+																	$like_result = mysqli_query($connection,$like_delete_query) or die ("Error in query: $like_delete_query. ".mysql_error());
 																	echo '<i class="fa fa-thumbs-up" aria-hidden="true" style="color:#3273DC;"></i>';
 																}else{
-																	$like_query = "INSERT INTO likes(userid, postid) VALUES ($clientid,$id)";
-																	$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysql_error());
+																	$like_add_query = "INSERT INTO likes(userid, postid) VALUES ($clientid,$id)";
+																	$like_result = mysqli_query($connection,$like_add_query) or die ("Error in query: $like_add_query. ".mysql_error());
 																	echo '<i class="fa fa-thumbs-o-up" aria-hidden="true" style="color:#3273DC;"></i>';
 																}
+															}
+														?>
+													</button>
+												</form>
+												<p><?=$likes_number[0]?></p>
+						        	</a>
+											<a class="level-item">
+												<form action="index.php" method="POST">
+													<button type="submit" style="background: none; border:none; padding:0;" value="<?=$id?>" name="comment">
+														<?php
+															if($_POST['comment']) {
+																//$likeid = $_GET['value'];
+																//echo $likeid;
+																echo '<i class="fa fa-comment-o" aria-hidden="true" style="color:#3273DC;"></i>';
+																// $like_query = "SELECT postid, userid FROM likes where postid = $id and userid = $clientid";
+																// $like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysqli_error());
+																// $like_count = "SELECT count(userid) FROM likes where postid = $id";
+																// $like_count_result = mysqli_query($connection,$like_count) or die ("Error in query: $like_count. ".mysqli_error());
+																// $likes_number = mysqli_fetch_row($like_count_result);
+																// if (mysqli_num_rows($like_result) > 0) {
+																// 	$like_query = "DELETE FROM likes WHERE postid = $id and userid = $clientid";
+																// 	$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysql_error());
+																//
+																// }else{
+																// 	$like_query = "INSERT INTO likes(userid, postid) VALUES ($clientid,$id)";
+																// 	$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysql_error());
+																// 	echo '<i class="fa fa-thumbs-o-up" aria-hidden="true" style="color:#3273DC;"></i>';
+																// }
 															}
 														?>
 													</button>
 													<!-- <input type = "submit" class="button is-primary is-small" value="<?=$id?>" name="like"/> -->
 												</form>
 						        	</a>
-											<a class="level-item">
-												<p><?=$likes_number[0]?></p>
-											</a>
-
 						      	</div>
 						    </nav>
 						</div>
