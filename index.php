@@ -112,8 +112,13 @@
 						    </div>
 								<?php
 									if($_POST['like']) {
+										//$likeid = $_GET['value'];
+										//echo $likeid;
 										$like_query = "SELECT postid, userid FROM likes where postid = $id and userid = $clientid";
 										$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysqli_error());
+										$like_count = "SELECT userid FROM likes where postid = $id";
+										$like_count_result = mysqli_query($connection,$like_count) or die ("Error in query: $like_count. ".mysqli_error());
+										$like_number = count($like_count_result);
 										if (mysqli_num_rows($like_result) > 0) {
 											echo "you liked it before";
 											$like_query = "DELETE FROM likes WHERE postid = $id and userid = $clientid";
@@ -129,9 +134,12 @@
 						    	<div class="level-left">
 						        	<a class="level-item">
 												<form action="index.php" method="POST">
-													<input type = "submit" class="button is-primary is-small" value="Like"  name='like'/>
+													<input type = "submit" class="button is-primary is-small" value="<?=$id?>" name="like"/>
 												</form>
 						        	</a>
+											<a class="level-item">
+												<?=$like_number?>
+											</a>
 
 						      	</div>
 						    </nav>
