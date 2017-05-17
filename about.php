@@ -20,6 +20,7 @@
 							Legal &amp; Privacy
 					 </p>
 					 <ul class="menu-list">
+						 <li><a href="#legal">Legal</a></li>
 						 <li><a href="#privacy">Privacy</a></li>
 						 <li><a href="#info">User Information</a></li>
 					 </ul>
@@ -27,14 +28,17 @@
 						 Help
 					</p>
 					<ul class="menu-list">
-						<li><a href="#post">Post issues</a></li>
+						<li><a href="#post">Post</a></li>
+						<li><a href="#site">Website</a></li>
+						<li><a href="#account">Account</a></li>
 					</ul>
 					  <p class="menu-label">
 					    Developer Options
 					  </p>
 					  <ul class="menu-list">
 					    <li><a href="#open-source">Open-Source</a></li>
-						<li><a href="#contribute">Contribute</a></li>
+							<li><a href="#contribute">Contribute</a></li>
+							<li><a href="#detail">Technical Details</a></li>
 					  </ul>
 					</aside>
 				</div>
@@ -84,7 +88,7 @@
 									  </div>
 
 									  <div class="content">
-											I am a UCC student, sailor, rower, and hobby developer. I spend a lot of time on the water and I love making boats go fast. I've been programming for 2 years (as of 2017) and I've had a lot of fun learning different programming languages.
+											I am a student at Upper Canada College, sailor, rower, and hobby developer. I spend a lot of time on the water and I love making boats go fast. I've been programming for 2 years (as of 2017) and I've had a lot of fun learning different programming languages.
 											<br><br>
 											<a href="http://obrien.tech" target="_blank" class="button is-info is-outlined">Website</a>
 											<a href="https://github.com/obrien66" target="_blank" class="button is-dark is-outlined">Github</a>
@@ -120,7 +124,16 @@
 					</div>
 						</section>
 
+
+
+
 						<h1>Legal & Privacy</h1>
+						<section>
+							<h2 id="legal">Legal</h2>
+							<p>There is also zero tolerance for offensive posts or comments related to gender, gender, age, sexual orientation, disability, physical appearance, body size, race, nationality, or religion.
+							<br />We will mandotorily delete those posts/comments, and might delete the users' account from the system.</p>
+						</section>
+						<br>
 						<section>
 							<h2 id="privacy">Privacy</h2>
 	  					<p>We respect users' privacy and we protect our database and platform from cross site scripting. The database is controlled by Simon Zirui Guo and Nicholas O’Brien.</p>
@@ -130,6 +143,28 @@
 							<h2 id="info">User Information</h2>
 	  					<p>Cooxle and it's developers will not record, transfer, or sell user information in the Cooxle database.</p>
 						</section>
+
+						<h1>Help</h1>
+						<section>
+							<h2 id="post">Posting Issues</h2>
+							<p>If you have trouble posting a post or a comment, or liking other people's post. Please try to refresh the page and post it again.
+							<br />If that doesn't work, please restart your browser. If nothing works, please <a href="mailto:simonguozirui@gmail.com;nicholas.obrien@ucc.on.ca">contact us</a> with information of the situation, your OS and browser information.</p>
+						</section>
+						<br>
+						<section>
+							<h2 id="site">Website Issues</h2>
+							<p>If Cooxle does not load properly or the layout became messey, please try refresh the page and restart the browser. Please update your browser to the latest version as well.</p>
+						</section>
+						<br>
+						<section>
+							<h2 id="account">Account Issues</h2>
+							<p>If have troubling logging in, please <a href="mailto:simonguozirui@gmail.com;nicholas.obrien@ucc.on.ca">contact us</a> so that we can help you to restore access to your account.
+							<br />Please contact us as well if you think that your account is hacked and your privacy is not secure.</p>
+						</section>
+						<br>
+						<p>If you have any other questions or concerns, please feel free to contact <a href="mailto:simonguozirui@gmail.com">Simon Zirui Guo</a> or <a href="mailto:nicholas.obrien@ucc.on.ca">Nicholas O’Brien</a>.</p>
+
+
 
 						<h1>Developer Option</h1>
 						<section>
@@ -151,6 +186,10 @@
 	  					<p>If you would like to run Cooxle locally, please download our project at our <a href="https://github.com/simonguozirui/cooxle" target="_blank">GitHub repository</a>.
 							<br />If you have any suggestions or suggestions about the project, please open an issue or submit a pull request on our <a href="https://github.com/simonguozirui/cooxle" target="_blank">GitHub repository</a>.
 							<br />Visit our <a href="https://github.com/simonguozirui/cooxle/wiki" target="_blank" >Github Wiki</a> for more documentation on the project.</p>
+						</section>
+						<br>
+						<section>
+							<h2 id="detail">Technical Details</h2>
 						</section>
 
 					</div>
