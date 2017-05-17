@@ -115,7 +115,7 @@
 						    	<div class="level-left">
 						        	<a class="level-item">
 												<form action="index.php" method="POST">
-													<button type="submit" class="fabutton" value="<?=$id?>" name="like">
+													<button type="submit" style="background: none; border:none; padding:0;" value="<?=$id?>" name="like">
 														<?php
 															if($_POST['like']) {
 																//$likeid = $_GET['value'];
@@ -129,11 +129,11 @@
 																if (mysqli_num_rows($like_result) > 0) {
 																	$like_query = "DELETE FROM likes WHERE postid = $id and userid = $clientid";
 																	$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysql_error());
-																	echo '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
+																	echo '<i class="fa fa-thumbs-up" aria-hidden="true" style="color:#3273DC;"></i>';
 																}else{
 																	$like_query = "INSERT INTO likes(userid, postid) VALUES ($clientid,$id)";
 																	$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysql_error());
-																	echo '<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>';
+																	echo '<i class="fa fa-thumbs-o-up" aria-hidden="true" style="color:#3273DC;"></i>';
 																}
 															}
 														?>
