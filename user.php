@@ -47,7 +47,9 @@
 							$profile_query_result_row = mysqli_fetch_row($profile_query_result);
 							$current_pic_link = $profile_query_result_row[0];
 							$bio = $profile_query_result_row[1];
-
+							if ($current_pic_link == null){
+								$current_pic_link = "img/user.png";
+							}
 						?>
 						<p class="image is-128x128">
 							<img src="<?=$current_pic_link?>" alt="<?$usr?>">
@@ -55,7 +57,7 @@
 						<br>
 						<h1 class="title is-1"><?=$clientname?></h1>
 						<p><?=$bio?></p>
-						
+
 						<?php
 							//get user's post number
 							// To access $_SESSION['user'] values put in an array, show user his username

@@ -107,6 +107,9 @@
 					$pic_query_result = mysqli_query($connection,$pic_query) or die ("Error in query: $pic_query. ".mysqli_error());
 					$pic_query_result_row = mysqli_fetch_row($pic_query_result);
 					$current_pic_link = $pic_query_result_row[0];
+					if ($current_pic_link == null){
+						$current_pic_link = "img/user.png";
+					}
 
     			// if there is a tag, create a button for it.
     			if ($tag != "") {
