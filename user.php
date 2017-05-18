@@ -36,16 +36,26 @@
 								$location = "http://" . $_SERVER['HTTP_HOST'] . "/index.php";
 								echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
 							}
-						?>
-						<h1 class="title is-1"><?=$clientname?></h1>
-						<?php
-							//get user's post number
-							// To access $_SESSION['user'] values put in an array, show user his username
 							// open connection
 							$connection = mysqli_connect($host, $username, $password) or die ("Unable to connect!");
 
 							// select database
 							mysqli_select_db($connection, $dbname) or die ("Unable to select database!");
+
+							$pic_query = "SELECT pic FROM users where username = '$clientname'";
+							$pic_query_result = mysqli_query($connection,$pic_query) or die ("Error in query: $pic_query. ".mysqli_error());
+							$pic_query_result_row = mysqli_fetch_row($pic_query_result);
+							$current_pic_link = $pic_query_result_row[0];
+
+						?>
+						<p class="image is-128x128">
+							<img src="<?=$current_pic_link?>" alt="<?$usr?>">
+						</p>
+						<h1 class="title is-1"><?=$clientname?></h1>
+						<?php
+							//get user's post number
+							// To access $_SESSION['user'] values put in an array, show user his username
+
 
 							$post_count = "SELECT count(id) FROM posts where username = '$clientname'";
 							$post_count_result = mysqli_query($connection,$post_count) or die ("Error in query: $post_count. ".mysqli_error());
