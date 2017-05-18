@@ -71,13 +71,20 @@
 							$clientid = $arr[0];
 							$clientid_name = $arr[1];
 
-							if ($clientid_name !== $clientname){
+							$follower_count_query = "SELECT count(followerid) FROM follow where followingid = '$clientid'";
+							$follower_count_query_result = mysqli_query($connection,$follower_count_query) or die ("Error in query: $follower_count_query. ".mysqli_error());
+							$follower_num = mysqli_fetch_row($follower_count_query_result);
+
+							$following_count_query = "SELECT count(followingid) FROM follow where followerid = '$clientid'";
+							$following_count_query_result = mysqli_query($connection,$following_count_query) or die ("Error in query: $following_count_query. ".mysqli_error());
+							$following_num = mysqli_fetch_row($following_count_query_result);
+							/*if ($clientid_name !== $clientname){
 								// if($_POST['follow']) {
 								//echo "yes";
 								// }
 								//echo $cleintid;
 								//$follower_count = "SELECT count('followerid') FROM likes where 'followingid' = $cleintid";
-							}
+							}*/
 
 						?>
 
@@ -89,7 +96,7 @@
 
 							</button>
 						</form> -->
-						<h3 class="subtitle is-4"><?=$post_num[0]?> Posts | Followers | Following</h3>
+						<h3 class="subtitle is-4"><?=$post_num[0]?> Posts | <?=$follower_num[0]?> Followers | <?=$following_num[0]?> Following</h3>
 					</div>
 			</div>
 		</div>
