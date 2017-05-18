@@ -39,8 +39,8 @@
 						?>
 						<h1 class="title is-1"><?=$clientname?></h1>
 						<?php
+							//get user's post number
 							// To access $_SESSION['user'] values put in an array, show user his username
-
 							// open connection
 							$connection = mysqli_connect($host, $username, $password) or die ("Unable to connect!");
 
@@ -51,7 +51,7 @@
 							$post_count_result = mysqli_query($connection,$post_count) or die ("Error in query: $post_count. ".mysqli_error());
 							$post_num = mysqli_fetch_row($post_count_result);
 						?>
-						<h3 class="subtitle is-4"><?=$post_num[0]?> Posts by user</h3>
+						<h3 class="subtitle is-4"><?=$post_num[0]?> Posts | Followers | Following</h3>
 					</div>
 			</div>
 		</div>
