@@ -3,7 +3,7 @@
 	<?php include_once("required/head.php") ?>
 	<body>
 	<!-- Include the constant nav file. -->
-	<?php include_once("required/nav.php") ?>
+	<?php include_once("required/nav-about.php") ?>
 		<div class="container">
 			<div class="columns">
 				<div class="column is-2">
