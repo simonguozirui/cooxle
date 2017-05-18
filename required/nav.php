@@ -6,7 +6,7 @@
                 <img src="img/logo.png" alt="logo">
             </a>
             <a class="nav-item is-tab" href="index.php">Feeds</a>
-            <a class="nav-item is-tab" href="search.php">Search</a>
+            <!-- <a class="nav-item is-tab" href="search.php">Search</a> -->
             <a class="nav-item is-tab" href="about.php" target="_blank">About</a>
         </div>
         <div class="nav-right">
@@ -14,15 +14,15 @@
             <div class="field has-addons" style="padding:10;">
               <p class="control">
                 <span class="select">
-                  <select>
-                    <option>user</option>
-                    <option>tag</option>
+                  <select name="search">
+                    <option value="user">user</option>
+                    <option value="tag">tag</option>
                   </select>
                 </span>
               </p>
               <p class="control">
-                <input name="tag-lookup" class="input" type="text" placeholder="Search for tags">
-                <!-- <input name="user-lookup" class="input" type="text" placeholder="Search for users"> -->
+                <input name="search_content" class="input" type="text" placeholder="Search in Cooxle">
+                <!-- <input name="user-lookup" class="input" type="text" placeholder="Search in Cooxle"> -->
               </p>
               <p class="control">
                 <input class="button" type="submit" name="submit" value="search">
@@ -31,16 +31,18 @@
            </form>
 
             <?php
-          		// Save the POST requests.
-          		$searchTags = $_POST["tag-lookup"];
-          		$searchUser = $_POST["user-lookup"];
+              if( isset( $_POST['search'] ) ){
+                if( $_POST['search'] === "user" ) {
+                    $searchUser = $_POST["search_content"];
+                } elseif( $_POST['search'] === "tag" ) {
+                    $searchTags = $_POST["search_content"];
+                }
+              }
 
           		// if the person looks up a tag
           		if ($searchTags != '') {
           			// redirect them to tag.php with the tag name as the query string
           			$location =  "tag.php?".$searchTags;
-                echo $location;
-                // This redirects the user back to the login page after they register
                 echo "<script>  location.href = '$location'</script>";
 
                 // Calling die or exit after performing a redirect using the header function
@@ -53,8 +55,6 @@
           		elseif ($searchUser != '') {
           			// redirect them to user.php with the username as the query string
           			$location = "user.php?".$searchUser;
-                echo $location;
-                // This redirects the user back to the login page after they register
                 echo "<script>  location.href = '$location'</script>";
 
                 // Calling die or exit after performing a redirect using the header function
