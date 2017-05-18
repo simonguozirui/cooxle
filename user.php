@@ -42,16 +42,19 @@
 							// select database
 							mysqli_select_db($connection, $dbname) or die ("Unable to select database!");
 
-							$pic_query = "SELECT pic FROM users where username = '$clientname'";
-							$pic_query_result = mysqli_query($connection,$pic_query) or die ("Error in query: $pic_query. ".mysqli_error());
-							$pic_query_result_row = mysqli_fetch_row($pic_query_result);
-							$current_pic_link = $pic_query_result_row[0];
+							$profile_query = "SELECT pic, bio FROM users where username = '$clientname'";
+							$profile_query_result = mysqli_query($connection,$profile_query) or die ("Error in query: $profile_query. ".mysqli_error());
+							$profile_query_result_row = mysqli_fetch_row($profile_query_result);
+							$current_pic_link = $profile_query_result_row[0];
+							$bio = $profile_query_result_row[1];
 
 						?>
 						<p class="image is-128x128">
 							<img src="<?=$current_pic_link?>" alt="<?$usr?>">
 						</p>
+						<br>
 						<h1 class="title is-1"><?=$clientname?></h1>
+						<p><?=$bio?></p>
 						<?php
 							//get user's post number
 							// To access $_SESSION['user'] values put in an array, show user his username
@@ -67,9 +70,9 @@
 
 							if ($clientid_name !== $clientname){
 								// if($_POST['follow']) {
-								echo "yes";
+								//echo "yes";
 								// }
-								echo $cleintid;
+								//echo $cleintid;
 								//$follower_count = "SELECT count('followerid') FROM likes where 'followingid' = $cleintid";
 							}
 
