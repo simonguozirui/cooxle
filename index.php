@@ -31,7 +31,7 @@
 
 
 		    	<div class="control">
-		    		<!-- <input class="input" type="text" placeholder="&#x21AA;" name="animal"> -->
+		    		<!-- <input class="input" type="text" placeholder="&#x21AA;" name="content"> -->
 		    		<label class="label">Post Text</label>
 		    		<p class="control">
     					<textarea class="textarea" type="text" placeholder="&#x21AA; (maximum 255 characters)" name="text"></textarea>
@@ -201,7 +201,7 @@
 		// check to see if user has entered anything
 		if ($postText != "") {
 	 		// build SQL query
-			$query = "INSERT INTO posts (country, animal, username, time) VALUES ('$postTags', '$postText', '$clientname', '$postTime')";
+			$query = "INSERT INTO posts (tag, content, username, time) VALUES ('$postTags', '$postText', '$clientname', '$postTime')";
 			// run the query
      		$result = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysql_error());
 			// refresh the page to show new update

@@ -46,7 +46,7 @@
 		$connection = mysqli_connect($host, $username, $password) or die ("Unable to connect!");
 		mysqli_select_db($connection, $dbname) or die ("Unable to select database!");
 		$search = $_POST["search"];
-		$query = "SELECT * FROM posts WHERE country = '$curTag' ORDER BY `posts`.`id` DESC";
+		$query = "SELECT * FROM posts WHERE tag = '$curTag' ORDER BY `posts`.`id` DESC";
 		$result = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysql_error());
 
 		if (mysqli_num_rows($result) > 0) {
