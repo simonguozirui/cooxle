@@ -32,10 +32,12 @@
 					<script>
 					function countChar(val) {
 						var len = val.value.length;
-						if (len >= 250) {
-							val.value = val.value.substring(0, 250);
+						if (len >= 255) {
+							val.value = val.value.substring(0, 255);
+							$('#charNum').text("Exceeding Character Limit");
 						} else {
-							$('#charNum').text(250 - len);
+							var display_wordcount = 255 - len +" Characters Remaining";
+							$('#charNum').text(display_wordcount);
 						}
 					};
 					</script>
@@ -44,7 +46,7 @@
 		    		<label class="label">Post Text</label>
 		    		<p class="control">
     					<textarea class="textarea" type="text" placeholder="&#x21AA; (maximum 255 characters)" name="text" onkeyup="countChar(this)"></textarea>
-							<p>Characters Remained:<div style="display: inline-block;" id="charNum"></div></p>
+							<p style="text-align: right" id="charNum"></p>
   					</p>
 		    	</div>
 		    	<br>
