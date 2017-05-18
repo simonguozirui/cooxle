@@ -78,24 +78,26 @@
 							$following_count_query = "SELECT count(followingid) FROM follow where followerid = '$clientid'";
 							$following_count_query_result = mysqli_query($connection,$following_count_query) or die ("Error in query: $following_count_query. ".mysqli_error());
 							$following_num = mysqli_fetch_row($following_count_query_result);
-							/*if ($clientid_name !== $clientname){
+
+							if ($clientid_name !== $clientname){
 								// if($_POST['follow']) {
-								//echo "yes";
+								echo '<input type="submit" name="follow" class="button is-primary is-medium" value="follow" />';
 								// }
 								//echo $cleintid;
 								//$follower_count = "SELECT count('followerid') FROM likes where 'followingid' = $cleintid";
-							}*/
+							}else{
+								echo '<input type="submit" name="edit" class="button is-primary is-medium" value="edit" />';
+							}
 
 						?>
 
-						<form action="<?=$_SERVER['PHP_SELF']?>">
-							<input type="submit" name="follow" class="button is-primary is-small" value="follow" />
-						</form>
+
 						<!-- <form action="user.php" method="POST">
 							<button type="submit" style="background: blue; border:none; padding:0;" value="<?=$id?>" name="like">
 
 							</button>
 						</form> -->
+						<br><br>
 						<h3 class="subtitle is-4"><?=$post_num[0]?> Posts | <?=$follower_num[0]?> Followers | <?=$following_num[0]?> Following</h3>
 					</div>
 			</div>
