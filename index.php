@@ -117,7 +117,7 @@
 						    	<div class="level-left">
 						        	<a class="level-item">
 												<form action="index.php" method="POST">
-													<button type="submit" style="background: none; border:none;" value="like" name="like">
+													<button type="submit" style="padding-top:18px;background: none; border:none;" value="like" name="like">
 														<?php
 															if($_POST['like']) {
 																$like_query = "SELECT postid, userid FROM likes where postid = $id and userid = $clientid";
@@ -140,8 +140,10 @@
 														?>
 													</button>
 												</form>
-												<p><?=$likes_number[0]?></p>
 						        	</a>
+											<a class="level-item">
+												<p style="font-size: 20px;"><?=$likes_number[0]?></p>
+											</a>
 						      	</div>
 						    </nav>
 						</div>
