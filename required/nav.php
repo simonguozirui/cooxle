@@ -72,7 +72,23 @@
 
             <?php $arr = array_values($_SESSION['user']); ?>
             <a class="nav-item is-tab" href="user.php?<?php echo $arr[1];?>">
-                <?php echo $arr[1];?>
+              <?php
+                // open connection
+                $connection = mysqli_connect($host, $username, $password) or die ("Unable to connect!");
+                // select database
+                mysqli_select_db($connection, $dbname) or die ("Unable to select database!");
+                $pic_query = "SELECT pic FROM users where username = '$arr[1]'";
+      					$pic_query_result = mysqli_query($connection,$pic_query) or die ("Error in query: $pic_query. ".mysqli_error());
+      					$pic_query_result_row = mysqli_fetch_row($pic_query_result);
+      					$current_pic_link = $pic_query_result_row[0];
+      					if ($current_pic_link == null){
+      						$current_pic_link = "img/user.png";
+      					}
+              ?>
+              <figure class="image is-32x32" style="padding:2;margin:8">
+                <img src="<?=$current_pic_link?>" alt="<?php $arr[1];?>">
+              </figure>
+              <?php echo $arr[1];?>
             </a>
             <a class="nav-item is-tab" href="logout.php">Log Out</a>
         </div>
