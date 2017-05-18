@@ -47,7 +47,7 @@
 							// select database
 							mysqli_select_db($connection, $dbname) or die ("Unable to select database!");
 
-							$post_count = "SELECT count(id) FROM symbols where username = '$clientname'";
+							$post_count = "SELECT count(id) FROM posts where username = '$clientname'";
 							$post_count_result = mysqli_query($connection,$post_count) or die ("Error in query: $post_count. ".mysqli_error());
 							$post_num = mysqli_fetch_row($post_count_result);
 						?>
@@ -70,7 +70,7 @@
 		// create query
 		$search = $_POST["search"];
 
-		$query = "SELECT * FROM symbols WHERE username = '$clientname' ORDER BY `symbols`.`id` DESC";
+		$query = "SELECT * FROM posts WHERE username = '$clientname' ORDER BY `posts`.`id` DESC";
 
 		// execute query
 		$result = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysql_error());

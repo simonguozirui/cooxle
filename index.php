@@ -69,8 +69,8 @@
 			$location = "http:/" . $_SERVER['HTTP_HOST'] . "user.php?".$searchUser;
 			echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
 		}
-		// search symbols in from most to least recent
-		$query = "SELECT * FROM `symbols` ORDER BY `symbols`.`id` DESC";
+		// search posts in from most to least recent
+		$query = "SELECT * FROM `posts` ORDER BY `posts`.`id` DESC";
 		// execute query
 		$result = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysql_error());
 		// $result = array_reverse($initial);
@@ -201,7 +201,7 @@
 		// check to see if user has entered anything
 		if ($postText != "") {
 	 		// build SQL query
-			$query = "INSERT INTO symbols (country, animal, username, time) VALUES ('$postTags', '$postText', '$clientname', '$postTime')";
+			$query = "INSERT INTO posts (country, animal, username, time) VALUES ('$postTags', '$postText', '$clientname', '$postTime')";
 			// run the query
      		$result = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysql_error());
 			// refresh the page to show new update
