@@ -50,7 +50,29 @@
 							$post_count = "SELECT count(id) FROM posts where username = '$clientname'";
 							$post_count_result = mysqli_query($connection,$post_count) or die ("Error in query: $post_count. ".mysqli_error());
 							$post_num = mysqli_fetch_row($post_count_result);
+
+							$arr = array_values($_SESSION['user']);
+							$clientid = $arr[0];
+							$clientid_name = $arr[1];
+
+							if ($clientid_name !== $clientname){
+								// if($_POST['follow']) {
+								echo "yes";
+								// }
+								echo $cleintid;
+								//$follower_count = "SELECT count('followerid') FROM likes where 'followingid' = $cleintid";
+							}
+
 						?>
+
+						<form action="<?=$_SERVER['PHP_SELF']?>">
+							<input type="submit" name="follow" class="button is-primary is-small" value="follow" />
+						</form>
+						<!-- <form action="user.php" method="POST">
+							<button type="submit" style="background: blue; border:none; padding:0;" value="<?=$id?>" name="like">
+
+							</button>
+						</form> -->
 						<h3 class="subtitle is-4"><?=$post_num[0]?> Posts | Followers | Following</h3>
 					</div>
 			</div>

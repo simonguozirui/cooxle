@@ -15,7 +15,7 @@
 		<h1 class="title">
 			<?php
 				// get array values from login
-		    	$arr = array_values($_SESSION['user']);
+		    $arr = array_values($_SESSION['user']);
 				$clientid = $arr[0];
 				$clientname = $arr[1]; // assign username to variable clientname
 				$email = $arr[2]; // assing email to variable email
@@ -103,6 +103,11 @@
 					$min = date("i:s",$row[4]);
     			$tagText = "";
 					//$sql = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysqli_error());
+					$pic_query = "SELECT pic FROM users where username = '$usr'";
+					//$pic_query_result = mysqli_query($connection,$pic_query) or die ("Error in query: $pic_query. ".mysqli_error());
+					//echo $pic_query_result;
+					//$current_pic_link = $pic_query_result[0];
+					$current_pic_link = "http://simonguo.tech/img/head.png";
 
     			// if there is a tag, create a button for it.
     			if ($tag != "") {
@@ -111,7 +116,7 @@
 				?><div class="column is-half is-offset-one-quarter"><div class="box"><article class="media">
   						<figure class="media-left">
     						<p class="image is-64x64">
-						      <img src="img/user.png">
+						      <img src="<?=$current_pic_link?>" alt="<?$usr?>">
 						    </p>
 						</figure>
 						<div class="media-content">
@@ -119,10 +124,9 @@
 						      	<p>
 						        <strong><a href="user.php?<?=$usr?>"><?=$usr?></a></strong> <small>ID: <?=$id?></small> <small><?=$date?> <?=$fixed_hour?>:<?=$min?></small>
 						        <br>
-						       <?=$tagText?><?=$text?>
+						       	<?=$tagText?><?=$text?>
 						      	</p>
 						    </div>
-
 						    <nav class="level is-mobile">
 						    	<div class="level-left">
 						        	<a class="level-item">
@@ -142,6 +146,7 @@
 																}else{
 																	$like_add_query = "INSERT INTO likes(userid, postid) VALUES ($clientid,$id)";
 																	$like_result = mysqli_query($connection,$like_add_query) or die ("Error in query: $like_add_query. ".mysql_error());
+																	echo "hello";
 																	echo '<i class="fa fa-thumbs-o-up" aria-hidden="true" style="color:#3273DC;"></i>';
 																}
 															}
@@ -149,34 +154,6 @@
 													</button>
 												</form>
 												<p><?=$likes_number[0]?></p>
-						        	</a>
-											<a class="level-item">
-												<form action="index.php" method="POST">
-													<button type="submit" style="background: none; border:none; padding:0;" value="<?=$id?>" name="comment">
-														<?php
-															if($_POST['comment']) {
-																//$likeid = $_GET['value'];
-																//echo $likeid;
-																echo '<i class="fa fa-comment-o" aria-hidden="true" style="color:#3273DC;"></i>';
-																// $like_query = "SELECT postid, userid FROM likes where postid = $id and userid = $clientid";
-																// $like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysqli_error());
-																// $like_count = "SELECT count(userid) FROM likes where postid = $id";
-																// $like_count_result = mysqli_query($connection,$like_count) or die ("Error in query: $like_count. ".mysqli_error());
-																// $likes_number = mysqli_fetch_row($like_count_result);
-																// if (mysqli_num_rows($like_result) > 0) {
-																// 	$like_query = "DELETE FROM likes WHERE postid = $id and userid = $clientid";
-																// 	$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysql_error());
-																//
-																// }else{
-																// 	$like_query = "INSERT INTO likes(userid, postid) VALUES ($clientid,$id)";
-																// 	$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysql_error());
-																// 	echo '<i class="fa fa-thumbs-o-up" aria-hidden="true" style="color:#3273DC;"></i>';
-																// }
-															}
-														?>
-													</button>
-													<!-- <input type = "submit" class="button is-primary is-small" value="<?=$id?>" name="like"/> -->
-												</form>
 						        	</a>
 						      	</div>
 						    </nav>
