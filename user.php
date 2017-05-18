@@ -50,15 +50,7 @@
 							if ($current_pic_link == null){
 								$current_pic_link = "img/user.png";
 							}
-						?>
-						<p class="image is-128x128">
-							<img src="<?=$current_pic_link?>" alt="<?$usr?>">
-						</p>
-						<br>
-						<h1 class="title is-1"><?=$clientname?></h1>
-						<p><?=$bio?></p>
 
-						<?php
 							//get user's post number
 							// To access $_SESSION['user'] values put in an array, show user his username
 
@@ -78,6 +70,18 @@
 							$following_count_query = "SELECT count(followingid) FROM follow where followerid = '$clientid'";
 							$following_count_query_result = mysqli_query($connection,$following_count_query) or die ("Error in query: $following_count_query. ".mysqli_error());
 							$following_num = mysqli_fetch_row($following_count_query_result);
+
+						?>
+						<p class="image is-128x128">
+							<img src="<?=$current_pic_link?>" alt="<?$usr?>">
+						</p>
+						<br>
+						<h1 class="title is-1"><?=$clientname?></h1>
+						<h3 class="subtitle is-4"><?=$post_num[0]?> Posts | <?=$follower_num[0]?> Followers | <?=$following_num[0]?> Following</h3>
+						<p><?=$bio?></p>
+						<br>
+
+						<?php
 
 							if ($clientid_name !== $clientname){
 
@@ -102,27 +106,9 @@
 								//echo $cleintid;
 								//$follower_count = "SELECT count('followerid') FROM likes where 'followingid' = $cleintid";
 							}else{
-								echo '<a class="button is-primary is-medium modal-button" data-target="#edit_modal">Edit</a>';
+								echo '<a class="button is-primary is-medium modal-button" id="edit">Edit</a>';
 							}
-
 						?>
-
-						<div class="modal" id="edit_modal">
-						  <div class="modal-background"></div>
-						  <div class="modal-card">
-						    <header class="modal-card-head">
-						      <p class="modal-card-title">Modal title</p>
-						      <button class="delete"></button>
-						    </header>
-						    <section class="modal-card-body">
-						      <!-- Content ... -->
-						    </section>
-						    <footer class="modal-card-foot">
-						      <a class="button is-success">Save changes</a>
-						      <a class="button">Cancel</a>
-						    </footer>
-						  </div>
-						</div>
 
 						<!-- <form action="user.php" method="POST">
 							<button type="submit" style="background: blue; border:none; padding:0;" value="<?=$id?>" name="like">
@@ -130,8 +116,7 @@
 							</button>
 						</form> -->
 						<br><br>
-						<h3 class="subtitle is-4"><?=$post_num[0]?> Posts | <?=$follower_num[0]?> Followers | <?=$following_num[0]?> Following</h3>
-					</div>
+				</div>
 			</div>
 		</div>
 		<br>

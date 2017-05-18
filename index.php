@@ -144,6 +144,35 @@
 											<a class="level-item">
 												<p style="font-size: 20px;"><?=$likes_number[0]?></p>
 											</a>
+											<a class="level-item">
+												<!-- <form action="index.php" method="POST">
+													<button type="submit" style="padding-top:18px;background: none; border:none;" value="like" name="like">
+														<?php
+															if($_POST['like']) {
+																$like_query = "SELECT postid, userid FROM likes where postid = $id and userid = $clientid";
+																$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysqli_error());
+																$like_count = "SELECT count(userid) FROM likes where postid = $id";
+																$like_count_result = mysqli_query($connection,$like_count) or die ("Error in query: $like_count. ".mysqli_error());
+																$likes_number = mysqli_fetch_row($like_count_result);
+																if (mysqli_num_rows($like_result) > 0) {
+																	$like_delete_query = "DELETE FROM likes WHERE postid = $id and userid = $clientid";
+																	$like_result = mysqli_query($connection,$like_delete_query) or die ("Error in query: $like_delete_query. ".mysql_error());
+																	echo '<i class="fa fa-thumbs-up" aria-hidden="true" style="color:#3273DC;"></i>';
+																}else{
+																	$like_add_query = "INSERT INTO likes(userid, postid) VALUES ($clientid,$id)";
+																	$like_result = mysqli_query($connection,$like_add_query) or die ("Error in query: $like_add_query. ".mysql_error());
+																	echo '<i class="fa fa-thumbs-o-up" aria-hidden="true" style="color:#3273DC;"></i>';
+																}
+															}else{
+																echo '<i class="fa fa-thumbs-o-up" aria-hidden="true" style="color:#3273DC;"></i>';
+															}
+														?>
+													</button>
+												</form> -->
+						        	</a>
+											<a class="level-item">
+												<p style="font-size: 20px;"><?=$comments_number[0]?></p>
+											</a>
 						      	</div>
 						    </nav>
 						</div>
