@@ -80,17 +80,49 @@
 							$following_num = mysqli_fetch_row($following_count_query_result);
 
 							if ($clientid_name !== $clientname){
-								// if($_POST['follow']) {
-								echo '<input type="submit" name="follow" class="button is-primary is-medium" value="follow" />';
-								// }
+
+									// if($_POST['like']) {
+									// 	$follow_status_query = "SELECT postid, userid FROM likes where postid = $id and userid = $clientid";
+									// 	$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysqli_error());
+									// 	$like_count = "SELECT count(userid) FROM likes where postid = $id";
+									// 	$like_count_result = mysqli_query($connection,$like_count) or die ("Error in query: $like_count. ".mysqli_error());
+									// 	$likes_number = mysqli_fetch_row($like_count_result);
+									// 	if (mysqli_num_rows($like_result) > 0) {
+									// 		$like_delete_query = "DELETE FROM likes WHERE postid = $id and userid = $clientid";
+									// 		$like_result = mysqli_query($connection,$like_delete_query) or die ("Error in query: $like_delete_query. ".mysql_error());
+									// 		echo '<i class="fa fa-thumbs-up" aria-hidden="true" style="color:#3273DC;"></i>';
+									// 	}else{
+									// 		$like_add_query = "INSERT INTO likes(userid, postid) VALUES ($clientid,$id)";
+									// 		$like_result = mysqli_query($connection,$like_add_query) or die ("Error in query: $like_add_query. ".mysql_error());
+									// 		echo "hello";
+									// 		echo '<i class="fa fa-thumbs-o-up" aria-hidden="true" style="color:#3273DC;"></i>';
+									// 	}
+									// }
+								echo '<input type="submit" name="follow" class="button is-primary is-medium" value="follow"/>';
 								//echo $cleintid;
 								//$follower_count = "SELECT count('followerid') FROM likes where 'followingid' = $cleintid";
 							}else{
-								echo '<input type="submit" name="edit" class="button is-primary is-medium" value="edit" />';
+								echo '<a class="button is-primary is-medium modal-button" data-target="#edit_modal">Edit</a>';
 							}
 
 						?>
 
+						<div class="modal" id="edit_modal">
+						  <div class="modal-background"></div>
+						  <div class="modal-card">
+						    <header class="modal-card-head">
+						      <p class="modal-card-title">Modal title</p>
+						      <button class="delete"></button>
+						    </header>
+						    <section class="modal-card-body">
+						      <!-- Content ... -->
+						    </section>
+						    <footer class="modal-card-foot">
+						      <a class="button is-success">Save changes</a>
+						      <a class="button">Cancel</a>
+						    </footer>
+						  </div>
+						</div>
 
 						<!-- <form action="user.php" method="POST">
 							<button type="submit" style="background: blue; border:none; padding:0;" value="<?=$id?>" name="like">

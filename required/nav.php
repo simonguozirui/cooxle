@@ -10,6 +10,25 @@
             <a class="nav-item is-tab" href="about.php" target="_blank">About</a>
         </div>
         <div class="nav-right">
+          <div class="field has-addons" style="padding:10;">
+            <p class="control">
+              <span class="select">
+                <select>
+                  <option>User</option>
+                  <option>Tag</option>
+                </select>
+              </span>
+            </p>
+            <p class="control">
+              <input class="input" type="text" placeholder="">
+            </p>
+            <p class="control">
+              <a class="button">
+                Search
+              </a>
+            </p>
+          </div>
+
             <?php $arr = array_values($_SESSION['user']); ?>
             <a class="nav-item is-tab" href="user.php?<?php echo $arr[1];?>">
                 <?php echo $arr[1];?>
