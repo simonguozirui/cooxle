@@ -195,7 +195,7 @@
 							<br />We also use php and JS for dynamic contents. Cooxle is also mobile compatible.</p>
 							<h4>Back-End</h4>
 							<p>All user and post data are stored in a mysql database and accessed through php codes.
-								<br />The service is hosted on an Apache server.</p>
+							<br />The service is hosted on an Apache server.</p>
 							<h4>Encryption</h4>
 							<p>We integrated 2nd degree salts to prevent cross site scripting and SQL injections. Cooxle's database is totally safe from all kinds of attacking.
 						</section>
