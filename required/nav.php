@@ -21,7 +21,7 @@
                 </span>
               </p>
               <p class="control">
-                <input name="tag-lookup" class="input" type="text" placeholder="Search for tags"> -->
+                <input name="tag-lookup" class="input" type="text" placeholder="Search for tags">
                 <!-- <input name="user-lookup" class="input" type="text" placeholder="Search for users"> -->
               </p>
               <p class="control">
@@ -38,15 +38,33 @@
           		// if the person looks up a tag
           		if ($searchTags != '') {
           			// redirect them to tag.php with the tag name as the query string
-          			$location = "http://" . $_SERVER['HTTP_HOST'] . "/tag.php?".$searchTags;
-          			echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.htmlentities($location, ENT_QUOTES, 'UTF-8').'">';
+          			$location =  "tag.php?".$searchTags;
+                echo $location;
+                // This redirects the user back to the login page after they register
+                echo "<script>  location.href = '$location'</script>";
+
+                // Calling die or exit after performing a redirect using the header function
+                // is critical.  The rest of your PHP script will continue to execute and
+                // will be sent to the user if you do not die or exit.
+                die("Redirecting to index.php");
+          			// echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.htmlentities($location, ENT_QUOTES, 'UTF-8').'">';
           		}
           		// if the person looks up a user
           		elseif ($searchUser != '') {
           			// redirect them to user.php with the username as the query string
-          			$location = "http://" . $_SERVER['HTTP_HOST'] ."user.php?".$searchUser;
+          			$location = "user.php?".$searchUser;
                 echo $location;
-                echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.htmlentities($location, ENT_QUOTES, 'UTF-8').'">';
+                // This redirects the user back to the login page after they register
+                echo "<script>  location.href = '$location'</script>";
+
+                // Calling die or exit after performing a redirect using the header function
+                // is critical.  The rest of your PHP script will continue to execute and
+                // will be sent to the user if you do not die or exit.
+                die("Redirecting to index.php");
+          			// echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.htmlentities($location, ENT_QUOTES, 'UTF-8').'">';
+                //redirect($location, false);
+
+                // echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.htmlentities($location, ENT_QUOTES, 'UTF-8').'">';
           		}
           	?>
 
