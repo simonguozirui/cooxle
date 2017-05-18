@@ -14,8 +14,8 @@
             <p class="control">
               <span class="select">
                 <select>
-                  <option>User</option>
-                  <option>Tag</option>
+                  <option>user</option>
+                  <option>tag</option>
                 </select>
               </span>
             </p>

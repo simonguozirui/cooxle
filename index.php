@@ -133,7 +133,7 @@
 						    	<div class="level-left">
 						        	<a class="level-item">
 												<form action="index.php" method="POST">
-													<button type="submit" style="background: none; border:none; padding:0;" value="<?=$id?>" name="like">
+													<button type="submit" style="background: none; border:none;" value="like" name="like">
 														<?php
 															if($_POST['like']) {
 																$like_query = "SELECT postid, userid FROM likes where postid = $id and userid = $clientid";
@@ -148,9 +148,10 @@
 																}else{
 																	$like_add_query = "INSERT INTO likes(userid, postid) VALUES ($clientid,$id)";
 																	$like_result = mysqli_query($connection,$like_add_query) or die ("Error in query: $like_add_query. ".mysql_error());
-																	echo "hello";
 																	echo '<i class="fa fa-thumbs-o-up" aria-hidden="true" style="color:#3273DC;"></i>';
 																}
+															}else{
+																echo '<i class="fa fa-thumbs-o-up" aria-hidden="true" style="color:#3273DC;"></i>';
 															}
 														?>
 													</button>
