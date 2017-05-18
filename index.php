@@ -19,7 +19,7 @@
 				$clientid = $arr[0];
 				$clientname = $arr[1]; // assign username to variable clientname
 				$email = $arr[2]; // assing email to variable email
-				echo "Hello " . $clientname;
+				echo "Hello " . $clientname."!";
 			?>
 		</h1>
 		<br>

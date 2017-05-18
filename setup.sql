@@ -1,9 +1,30 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
 
 --
--- Database: `testdb`
+-- Database: `cooxledb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `userid` int(11) NOT NULL,
+  `postid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `follow`
+--
+
+CREATE TABLE `follow` (
+  `followerid` int(11) NOT NULL,
+  `followingid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -19,16 +40,16 @@ CREATE TABLE `likes` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `symbols`
+-- Table structure for table `posts`
 --
 
-CREATE TABLE `symbols` (
+CREATE TABLE `posts` (
   `id` int(11) NOT NULL,
-  `country` varchar(255) NOT NULL DEFAULT '',
-  `animal` varchar(255) NOT NULL DEFAULT '',
+  `tag` varchar(255) NOT NULL DEFAULT '',
+  `content` varchar(255) NOT NULL DEFAULT '',
   `username` varchar(255) NOT NULL,
   `time` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -41,7 +62,8 @@ CREATE TABLE `users` (
   `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` char(64) COLLATE utf8_unicode_ci NOT NULL,
   `salt` char(16) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `pic` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -49,9 +71,9 @@ CREATE TABLE `users` (
 --
 
 --
--- Indexes for table `symbols`
+-- Indexes for table `posts`
 --
-ALTER TABLE `symbols`
+ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -67,9 +89,9 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `symbols`
+-- AUTO_INCREMENT for table `posts`
 --
-ALTER TABLE `symbols`
+ALTER TABLE `posts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 --
 -- AUTO_INCREMENT for table `users`
