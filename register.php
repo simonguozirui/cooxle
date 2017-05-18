@@ -235,6 +235,22 @@
             </span>
           </p>
         </div>
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input type="text" name="profile_pic" value="" class="input is-primary" placeholder="Profile Picture Link">
+            <span class="icon is-small is-left">
+              <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input type="text" name="bio" value="" class="input is-primary" placeholder="Short Bio about yourself">
+            <span class="icon is-small is-left">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </span>
+          </p>
+        </div>
         <center><button type="submit" class="button is-primary is-medium">Sign Up</button></center>
         </form>
         <center><p>Already have an account? <a href="login.php">Log In</a></p></center>

@@ -55,6 +55,7 @@
 						<br>
 						<h1 class="title is-1"><?=$clientname?></h1>
 						<p><?=$bio?></p>
+						
 						<?php
 							//get user's post number
 							// To access $_SESSION['user'] values put in an array, show user his username
