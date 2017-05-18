@@ -51,7 +51,7 @@
 		    	</div>
 		    	<br>
 		    	<label class="label">Post Tag</label>
-		    	<div class="control"><input class="input" type="text" placeholder="&#x21AA; (not required)" name="tags"></div>
+		    	<div class="control"><input class="input" type="text" placeholder="&#x21AA; (not required)" name="tag"></div>
 					<br>
 		    	<input class="button is-primary" type="submit" name="submit">
 		    </form>
@@ -65,22 +65,6 @@
 		// select database
 		mysqli_select_db($connection, $dbname) or die ("Unable to select database!");
 
-
-		$searchTags = $_POST["tag-lookup"];
-		$searchUser = $_POST["user-lookup"];
-
-		// if the person looks up a tag
-		if ($searchTags != '') {
-			// redirect them to tag.php with the tag name as the query string
-			$location = "http://" . $_SERVER['HTTP_HOST'] . "tag.php?".$searchTags;
-			echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
-		}
-		// if the person looks up a user
-		elseif ($searchUser != '') {
-			// redirect them to user.php with the username as the query string
-			$location = "http:/" . $_SERVER['HTTP_HOST'] . "user.php?".$searchUser;
-			echo '<META HTTP-EQUIV="refresh" CONTENT="0;URL='.$location.'">';
-		}
 		// search posts in from most to least recent
 		$query = "SELECT * FROM `posts` ORDER BY `posts`.`id` DESC";
 		// execute query
