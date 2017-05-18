@@ -104,10 +104,9 @@
     			$tagText = "";
 					//$sql = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysqli_error());
 					$pic_query = "SELECT pic FROM users where username = '$usr'";
-					//$pic_query_result = mysqli_query($connection,$pic_query) or die ("Error in query: $pic_query. ".mysqli_error());
-					//echo $pic_query_result;
-					//$current_pic_link = $pic_query_result[0];
-					$current_pic_link = "http://simonguo.tech/img/head.png";
+					$pic_query_result = mysqli_query($connection,$pic_query) or die ("Error in query: $pic_query. ".mysqli_error());
+					$pic_query_result_row = mysqli_fetch_row($pic_query_result);
+					$current_pic_link = $pic_query_result_row[0];
 
     			// if there is a tag, create a button for it.
     			if ($tag != "") {
