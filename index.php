@@ -28,13 +28,23 @@
 		<div class="column is-half is-offset-one-quarter">
 
 			<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-
-
+					<!--Javascript function that shows how much characters could be entered within the limit-->
+					<script>
+					function countChar(val) {
+						var len = val.value.length;
+						if (len >= 250) {
+							val.value = val.value.substring(0, 250);
+						} else {
+							$('#charNum').text(250 - len);
+						}
+					};
+					</script>
 		    	<div class="control">
 		    		<!-- <input class="input" type="text" placeholder="&#x21AA;" name="content"> -->
 		    		<label class="label">Post Text</label>
 		    		<p class="control">
-    					<textarea class="textarea" type="text" placeholder="&#x21AA; (maximum 255 characters)" name="text"></textarea>
+    					<textarea class="textarea" type="text" placeholder="&#x21AA; (maximum 255 characters)" name="text" onkeyup="countChar(this)"></textarea>
+							<p>Characters Remained:<div style="display: inline-block;" id="charNum"></div></p>
   					</p>
 		    	</div>
 		    	<br>
