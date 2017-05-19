@@ -42,13 +42,15 @@
 							// select database
 							mysqli_select_db($connection, $dbname) or die ("Unable to select database!");
 
-							$profile_query = "SELECT pic, bio, id FROM users where username = '$clientname'";
+							$profile_query = "SELECT pic, bio FROM users where username = '$clientname'";
 							$profile_query_result = mysqli_query($connection,$profile_query) or die ("Error in query: $profile_query. ".mysqli_error());
 							$profile_query_result_row = mysqli_fetch_row($profile_query_result);
 							$current_pic_link = $profile_query_result_row[0];
 							$bio = $profile_query_result_row[1];
-							$profileid = $profile_query_result_row[2];
-							echo $profileid;
+							// $profileid = $profile_query_result_row[2];
+							// $current_profile_id = (int)$profileid;
+							// echo $current_profile_id;
+
 							if ($current_pic_link == null){
 								$current_pic_link = "img/user.png";
 							}
@@ -74,6 +76,7 @@
 							$following_num = mysqli_fetch_row($following_count_query_result);
 
 						?>
+
 						<p class="image is-128x128">
 							<img src="<?=$current_pic_link?>" alt="<?$usr?>">
 						</p>
@@ -88,19 +91,25 @@
 								echo '<form action="user.php" method="POST"><input type="submit" name="follow" class="button is-primary is-medium" value="follow"/>';
 								if($_POST['follow']) {
 									echo '<script>alert("hello");</script>';
-									$follow_query = "SELECT followerid, followingid FROM follow where followerid = $clientid and followingid = $current_id";
+									$profile_id_query = "SELECT id FROM users where username = '$clientname'";
+									$profile_id_query_result = mysqli_query($connection,$profile_id_query) or die ("Error in query: $profile_id_query. ".mysqli_error());
+									$profile_id_query_result_row = mysqli_fetch_row($profile_id_query_result);
+									$profileid = $profile_id_query_result_row[0];
+									$current_profile_id = (int)$profileid;
+									echo $current_profile_id;
+									echo $current_profile_id;
+									$follow_query = "SELECT followerid, followingid FROM follow where followerid = $clientid and followingid = 5";
 									echo $follow_query;
-									$current_id = (int)$profileid;
 									$follow_result = mysqli_query($connection,$follow_query) or die ("Error in query: $follow_query. ".mysqli_error());
-									// if (mysqli_num_rows($like_result) > 0) {
-									// 	$like_delete_query = "DELETE FROM likes WHERE postid = $id and userid = $clientid";
-									// 	$like_result = mysqli_query($connection,$like_delete_query) or die ("Error in query: $like_delete_query. ".mysql_error());
-									// 	echo '<i class="fa fa-thumbs-up" aria-hidden="true" style="color:#3273DC;"></i>';
-									// }else{
-									// 	$like_add_query = "INSERT INTO likes(userid, postid) VALUES ($clientid,$id)";
-									// 	$like_result = mysqli_query($connection,$like_add_query) or die ("Error in query: $like_add_query. ".mysql_error());
-									// 	echo '<i class="fa fa-thumbs-o-up" aria-hidden="true" style="color:#3273DC;"></i>';
-									// }
+									if (mysqli_num_rows($follow_result) > 0) {
+										$follow_delete_query = "DELETE FROM follow WHERE followerid = $clientid and followingid = 5";
+										$follow_delete_result = mysqli_query($connection,$follow_delete_query) or die ("Error in query: $follow_delete_query. ".mysql_error());
+										echo '<input type="submit" name="follow" class="button is-primary is-medium" value="Followed"/>';
+									}else{
+										$follow_add_query = "INSERT INTO likes(followerid, followingid) VALUES ($clientid,5)";
+										$follow_add_result = mysqli_query($connection,$follow_add_query) or die ("Error in query: $follow_add_query. ".mysql_error());
+										echo '<input type="submit" name="follow" class="button is-danger is-medium" value="Unfollow"/>';
+									}
 								}else{
 									echo '<i class="fa fa-thumbs-o-up" aria-hidden="true" style="color:#3273DC;"></i>';
 								}
