@@ -51,15 +51,17 @@
 	  						Cooxle is a twitter-like social media platform with easy-to-use posting and account systems.
 								<br />Developed by <a href="http://obrien.tech" target="_blank">Nicholas O'Brien</a> and <a href="http://simonguo.tech" target="_blank">Simon Guo</a> for their ICS4U computer science class.
 								<br />It is hosted on <a href="https://github.com/simonguozirui/cooxle">Github</a> and under <a href="#open-source">the MIT License</a>.
+								<br />You can also access it on <a href="http://cooxle.life" target="_blank">http://cooxle.life</a>.
 	  					</p>
 						</section>
 						<br>
 						<section>
 							<h2 id="features">Features</h2>
 							<h4>Account System</h4>
-							<p>Cooxle let every user to create their user profile which others could view and follow. It includes users' picture, name, number of posts, number of followers, and posts posted by the user.</p>
+							<p>Cooxle let every user to create their user profile which others could view and follow. It includes users' picture, name, number of posts, number of followers, and posts posted by the user.
+							<br />You can change your account information in your profile page.</p>
 							<h4>Posting</h4>
-							<p>Cooxle allow users to post messages less than 140 characters. To post, simply go to the home page and fill in the textboxes. To add a tag, enter your desired tag in the tag box. Tags are not necessary, but they allow for users to find your post more easily.
+							<p>Cooxle allow users to post messages less than 255 characters. To post, simply go to the home page and fill in the textboxes. To add a tag, enter your desired tag in the tag box. Tags are not necessary, but they allow for users to find your post more easily.
 							<br />You can view other people's posts in the feed page, and you can like or comment on others' posts.</p>
 							<h4>Follower System</h4>
 							<p>You can follow other users and read post feeds from them.</p>
@@ -178,6 +180,7 @@
 						<br>
 						<section>
 							<h2 id="contribute">Contribute</h2>
+							<p>We do need your help to finish the Cooxle project. We still need more development on the <b>follow</b>, <b>like</b>, <b>comment</b> system.</p>
 							<p>You can run Cooxle locally on your development environment. Use <a href="setup.sql" target="_blank">setup.sql</a> to create the database structure cooxle has or copy and execute the code below.</p>
 							<pre>
 <!-- Include the sql setup script. -->
@@ -195,7 +198,7 @@
 							<br />We also use php and JS for dynamic contents. Cooxle is also mobile compatible.</p>
 							<h4>Back-End</h4>
 							<p>All user and post data are stored in a mysql database and accessed through php codes.
-							<br />The service is hosted on an Apache server.</p>
+							<br />The service is hosted on an Apache server. It is hosted on Amazon Webserver connected to Cooxle's domain <a href="http://cooxle.life" target="_blank">http://cooxle.life</a> with Route 53.</p>
 							<h4>Encryption</h4>
 							<p>We integrated 2nd degree salts to prevent cross site scripting and SQL injections. Cooxle's database is totally safe from all kinds of attacking.
 						</section>
