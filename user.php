@@ -138,12 +138,34 @@
 				            </span>
 				          </p>
 				        </div>
-			        	<center><button type="submit" class="button is-primary is-medium">Save Changes</button></center>
+			        	<center><button type="submit" class="button is-primary is-medium" name="submit_edit" value="submit_edit">Save Changes</button></center>
 			        </form>
 							</div>
 							<div class="column is-2"></div>
-
 						</div>
+						<?php
+							if($_POST['submit_edit']) {
+								$pic = $_POST["pic"];
+								$bio = $_POST["bio"];
+								// echo $pic;
+								// echo $bio;
+								if ($pic != ''){
+									$pic_update_query = "UPDATE users SET pic = '$pic' WHERE username = '$clientid_name'";
+									$pic_update_result = mysqli_query($connection,$pic_update_query) or die ("Error in query: $pic_update_query. ".mysql_error());
+									echo '<center><div class="notification is-success">
+			            Your Profile Picture is Updated<br>
+			            </div></center>';
+								}
+
+								if ($bio != ''){
+									$bio_update_query = "UPDATE users SET bio = '$bio' WHERE username = '$clientid_name'";
+									$bio_update_result = mysqli_query($connection,$bio_update_query) or die ("Error in query: $bio_update_query. ".mysql_error());
+									echo '<center><div class="notification is-success">
+									Your Bio is Updated<br>
+									</div></center>';
+								}
+							}
+						?>
 				</div>
 			</div>
 		</div>

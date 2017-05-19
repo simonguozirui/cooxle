@@ -22,7 +22,6 @@
               </p>
               <p class="control">
                 <input name="search_content" class="input" type="text" placeholder="Search in Cooxle">
-                <!-- <input name="user-lookup" class="input" type="text" placeholder="Search in Cooxle"> -->
               </p>
               <p class="control">
                 <input class="button" type="submit" name="submit" value="search">
@@ -31,7 +30,7 @@
            </form>
 
             <?php
-              if( isset( $_POST['search'] ) ){
+              if(isset( $_POST['search'] ) ){
                 if( $_POST['search'] === "user" ) {
                     $searchUser = $_POST["search_content"];
                 } elseif( $_POST['search'] === "tag" ) {
