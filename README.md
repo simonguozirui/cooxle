@@ -1,7 +1,9 @@
 # Cooxle
-Revolutionary Social Media Platform
+Cooxle is a twitter-like social media platform with easy-to-use posting and account systems.
 
-Licensed under the MIT license. Created by Simon Zi Rui Guo and Nicholas O'Brien for their Grade 10 Computer Science class (ICS4U). Use setup.sql to create the database structure we use or copy the code below.
+You can access the live website on [http://cooxle.life](http://cooxle.life).
+
+Licensed under the MIT license. Created by Simon Zi Rui Guo and Nicholas O'Brien for their Grade 10 Computer Science class (ICS4U). Use setup.sql to create the database structure we use or copy the code below and run it on a local mysql and apache server.
 
 ```sql
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
