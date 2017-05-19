@@ -201,51 +201,97 @@
 		// $result = array_reverse($initial);
 		// see if any rows were returned
 
+		// if there are rows
 		if (mysqli_num_rows($result) > 0) {
 
-    		// print them one after another
-    		echo '<div class="columns">"';
-    		while($row = mysqli_fetch_row($result)) {
-    			$tag = $row[1]; // get tag from 2nd array index
-    			$id = $row[0]; // get id from 1st array index
-    			$text = $row[2]; // get post text from 3rd array index
-    			$usr = $row[3]; // get username from 4th array index
-    			$tagText = "";
-    			// if there is a tag, create a button for it.
-    			if ($tag != "") {
-    				$tagText = '<a href="tag.php?'.$tag.'"><span class="tag is-primary is-small">'.$tag.'</span></a><br>';
-    			}
+				// print them one after another
+				echo '<div class="columns">"';
+				while($row = mysqli_fetch_row($result)) {
+					$tag = $row[1]; // get tag from 2nd array index
+					$id = $row[0]; // get id from 1st array index
+					$text = $row[2]; // get post text from 3rd array index
+					$usr = $row[3]; // get username from 4th array index
+					$fixed_hour = date("h",$row[4]) + 6;
+					$date = date("Y-m-d",$row[4]);
+					$min = date("i:s",$row[4]);
+					$tagText = "";
+					//$sql = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysqli_error());
+					$pic_query = "SELECT pic FROM users where username = '$usr'";
+					$pic_query_result = mysqli_query($connection,$pic_query) or die ("Error in query: $pic_query. ".mysqli_error());
+					$pic_query_result_row = mysqli_fetch_row($pic_query_result);
+					$current_pic_link = $pic_query_result_row[0];
+					if ($current_pic_link == null){
+						$current_pic_link = "img/user.png";
+					}
+
+					// if there is a tag, create a button for it.
+					if ($tag != "") {
+						$tagText = '<a href="tag.php?'.$tag.'"><span class="tag is-primary is-small">'.$tag.'</span></a><br>';
+					}
 				?><div class="column is-half is-offset-one-quarter"><div class="box"><article class="media">
-  						<figure class="media-left">
-    						<p class="image is-64x64">
-						      <img src="img/user.png">
-						    </p>
+							<figure class="media-left">
+								<p class="image is-64x64">
+									<img src="<?=$current_pic_link?>" alt="<?$usr?>">
+								</p>
 						</figure>
 						<div class="media-content">
-						 	<div class="content">
-						      	<p>
-						        <strong><a href="user.php?<?=$usr?>"><?=$usr?></a></strong> <small>ID: <?=$id?></small>
-						        <br>
-						       <?=$tagText?> <?=$text?>
-						      	</p>
-						    </div>
-						    <nav class="level is-mobile">
-						    	<div class="level-left">
-						        	<a class="level-item">
-										<form action="<?=$_SERVER['PHP_SELF']?>">
-											<input type="submit" name="<?=$id?>" class="button is-primary is-small" value="Like" />
-										</form>
-						        	</a>
-						      	</div>
-						    </nav>
+							<div class="content">
+										<p>
+										<strong><a href="user.php?<?=$usr?>"><?=$usr?></a></strong> <small>ID: <?=$id?></small> <small><?=$date?> <?=$fixed_hour?>:<?=$min?></small>
+										<br>
+										<?=$tagText?><?=$text?>
+										</p>
+								</div>
+								<nav class="level is-mobile">
+									<div class="level-left">
+											<a class="level-item">
+												<form action="index.php" method="POST">
+													<button type="submit" style="padding-top:18px;background: none; border:none;" value="like" name="like">
+														<?php
+															if($_POST['like']) {
+																$like_query = "SELECT postid, userid FROM likes where postid = $id and userid = $clientid";
+																$like_result = mysqli_query($connection,$like_query) or die ("Error in query: $like_query. ".mysqli_error());
+																$like_count = "SELECT count(userid) FROM likes where postid = $id";
+																$like_count_result = mysqli_query($connection,$like_count) or die ("Error in query: $like_count. ".mysqli_error());
+																$likes_number = mysqli_fetch_row($like_count_result);
+																if (mysqli_num_rows($like_result) > 0) {
+																	$like_delete_query = "DELETE FROM likes WHERE postid = $id and userid = $clientid";
+																	$like_result = mysqli_query($connection,$like_delete_query) or die ("Error in query: $like_delete_query. ".mysql_error());
+																	echo '<i class="fa fa-thumbs-up" aria-hidden="true" style="color:#3273DC;"></i>';
+																}else{
+																	$like_add_query = "INSERT INTO likes(userid, postid) VALUES ($clientid,$id)";
+																	$like_result = mysqli_query($connection,$like_add_query) or die ("Error in query: $like_add_query. ".mysql_error());
+																	echo '<i class="fa fa-thumbs-o-up" aria-hidden="true" style="color:#3273DC;"></i>';
+																}
+															}else{
+																echo '<i class="fa fa-thumbs-o-up" aria-hidden="true" style="color:#3273DC;"></i>';
+															}
+														?>
+													</button>
+												</form>
+											</a>
+											<a class="level-item">
+												<p style="font-size: 20px;"><?=$likes_number[0]?></p>
+											</a>
+											<a class="level-item">
+												<i class="fa fa-comment" aria-hidden="true" style="color:#3273DC;"></i>'
+											</a>
+											<a class="level-item">
+												<p style="font-size: 20px;"><?=$likes_number[0]?></p>
+											</a>
+										</div>
+								</nav>
 						</div>
 					</article></div></div></div>
 			<?php
-    		}
-		    echo "</div></div>";
-		} else {
-    		// print status message if there are no posts
-    		echo '<div class="columns is-mobile"><div class="column is-half is-offset-one-quarter"><div class="notification is-danger">No posts found by <b>'.$clientname.'</b> (or no users by the name of <b>'.$clientname.'</b>)</div></div></div>';
+				}
+				echo "</div></div>";
+		// if there are no posts
+		}
+		else {
+
+				// tell the user in a red notification
+				echo '<div class="columns is-mobile"><div class="column is-half is-offset-one-quarter"><div class="notification is-danger">No posts found</div></div></div>';
 		}
 
 		// free up memory from sql data.

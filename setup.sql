@@ -1,4 +1,5 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 --
 -- Database: `cooxledb`
@@ -12,7 +13,8 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE `comments` (
   `userid` int(11) NOT NULL,
-  `postid` int(11) NOT NULL
+  `postid` int(11) NOT NULL,
+  `content` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -63,7 +65,8 @@ CREATE TABLE `users` (
   `password` char(64) COLLATE utf8_unicode_ci NOT NULL,
   `salt` char(16) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `pic` text COLLATE utf8_unicode_ci NOT NULL
+  `pic` text COLLATE utf8_unicode_ci NOT NULL,
+  `bio` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
