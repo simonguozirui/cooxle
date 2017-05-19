@@ -110,12 +110,40 @@
 							}
 						?>
 
-						<!-- <form action="user.php" method="POST">
-							<button type="submit" style="background: blue; border:none; padding:0;" value="<?=$id?>" name="like">
-
-							</button>
-						</form> -->
 						<br><br>
+						<script>
+							$(document).ready(function(){
+							    $("#edit").click(function(){
+							        $("form#edit_info").show();
+							    });
+							});
+						</script>
+						<div class="columns is-mobile">
+							<div class="column is-2"></div>
+  						<div class="column is-8">
+							<form id="edit_info" action="user.php" method="post" style="display:none;">
+				        <div class="field">
+				          <p class="control has-icons-left has-icons-right">
+				            <input type="text" name="pic" value="" class="input is-primary" placeholder="Profile Picture Link">
+				            <span class="icon is-small is-left">
+											<i class="fa fa-user-circle-o" aria-hidden="true"></i>
+										</span>
+				          </p>
+				        </div>
+				        <div class="field">
+				          <p class="control has-icons-left has-icons-right">
+				            <input type="text" name="bio" value="" class="input is-primary" placeholder="A Short Bio about yourself">
+				            <span class="icon is-small is-left">
+											<i class="fa fa-pencil" aria-hidden="true"></i>
+				            </span>
+				          </p>
+				        </div>
+			        	<center><button type="submit" class="button is-primary is-medium">Save Changes</button></center>
+			        </form>
+							</div>
+							<div class="column is-2"></div>
+
+						</div>
 				</div>
 			</div>
 		</div>
